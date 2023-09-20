@@ -1,0 +1,52 @@
+[
+    {   
+        "id":1,
+        "imgsrc": "assets/images/products/headset.png",
+        "type": "Electronics",
+        "name": "HeadPhone",
+        "price": 300,
+        "rating": "12 rating",
+        "addedtocart": false,
+        "addedtowishlist": false
+    },
+    {
+        "id":2,
+        "imgsrc": "assets/images/products/iphone.png",
+        "type": "Electronics",
+        "name": "IPhone",
+        "price": 780,
+        "rating": "12 rating",
+        "addedtocart": false,
+        "addedtowishlist": false
+    },
+    {
+        "id":3,
+        "imgsrc": "assets/images/products/keyboard.png",
+        "type": "Electronics",
+        "name": "Keyboard",
+        "price": 200,
+        "rating": "12 rating",
+        "addedtocart": false,
+        "addedtowishlist": false
+    },
+    {
+        "id":4,
+        "imgsrc": "assets/images/products/macbook.png",
+        "type": "Electronics",
+        "name": "macbook",
+        "price": 450,
+        "rating": "12 rating",
+        "addedtocart": false,
+        "addedtowishlist": false
+    },
+    {
+        "id":5,
+        "imgsrc": "assets/images/products/pc.png",
+        "type": "Electronics",
+        "name": "All in-one-pc",
+        "price": 1000,
+        "rating": "12 rating",
+        "addedtocart": false,
+        "addedtowishlist": false
+    }
+]

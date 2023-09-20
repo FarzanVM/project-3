@@ -1,0 +1,213 @@
+*{  
+    font-family: sans-serif;
+    margin: 0;
+}
+$hvrcolor:#F8F8F8;
+$box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+/* for the header part */
+.header{
+    display: flex;
+    flex-direction: column;
+    background-color:#8EAC50;
+    color: #F4EEEE;
+}
+.topheader{
+    display:flex;
+    padding:5px;
+    justify-content: space-around;
+    /* border-bottom:1px solid #F4EEEE; */
+    /* border-bottom-width: thin; */
+    position: relative;
+    z-index: 1;
+}
+.topheader {
+    font-size: small;
+}
+.topheader:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    border-bottom:1px solid #F4EEEE;
+  }
+.options{
+    display: flex;
+    column-gap: 10px;
+}
+.bottomheader{
+    display: flex;
+    align-items: center;
+    height: 90px;
+    justify-content: space-around;
+    padding: 10px; 
+    .searchbox{
+        display: flex;   
+        .categoriesbtn{
+            border: none;
+            padding: 10px;
+            font-size: medium;
+            color: #40513B;
+            border-radius: 20px 0px 0px 20px;
+            border-right: 1px solid #8EAC50;
+            background-color: white;
+        }
+        .searchbar{
+            padding: 10px;
+            width:700px;
+            border: none;
+            border-radius: 0px 20px 20px 0px;
+        }
+    }
+    .cartbtn{
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        color:F4EEEE ;
+        background-color: #8EAC50;
+        font-size: large;
+        font-weight: bold;
+        color: white;
+        fa-icon{
+            font-size: xx-large;
+            color: white;
+        }
+    }
+    .cartbtn:hover{
+        background-color: #539165;
+    }
+    
+  
+}
+
+/* for navigation bar */
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: white;
+    
+}
+.navbtn{
+    cursor: pointer;
+    color: #40513B;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    background-color: white;
+}
+.navbtn:hover{
+    background-color:#F8F8F8 ;
+}
+.fashion-div{
+    position: absolute;
+    column-gap: 15px;
+    padding: 10px;
+    width: 100%;
+    height:auto;
+    z-index: 1;
+    background-color: #ffffff;
+    box-shadow:$box-shadow ;
+    .column{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        img{
+            width:100%;
+            height:230px;
+            object-fit: cover;
+        }
+        p{
+            padding: 10px;
+        }
+        p:hover{
+            background-color: $hvrcolor;
+        }
+        P:first-child{
+            border-bottom: 1px solid rgb(230, 229, 229);
+            font-weight: bold;
+        }
+    }
+}
+/* for footer */
+.footer{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 100%;
+    justify-content: center;
+    background-color: #8EAC50;
+}
+.footer h2{
+    color: whitesmoke;
+}
+.contact-info .heading1{
+    color: white;
+    font-weight: bolder;
+}
+.footer p{
+    color: #F4EEEE;
+    font-weight: lighter;
+}
+.subscription{
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    padding: 25px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.subscription::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    border-bottom: 1px solid rgb(202, 200, 200);
+}
+.email-address{
+    display: flex;
+}
+.email-address button{
+    border: none;
+}
+.footer input{
+    width: 400px;
+    padding: 10px;
+    border: none;
+}
+.contact-info{
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+.contact-info:before{
+    content: "";
+    position: absolute;
+    width:90%;
+    bottom: 0;
+    border: 1px solid rgb(202, 200, 200);
+}
+.googlemap{
+    width:600px;
+    height: 170px;
+}
+.googlemap iframe{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.copyright{
+    display: flex;
+    align-items: center;
+    padding:0px 45px 0px 45px;
+    justify-content: space-between;
+}

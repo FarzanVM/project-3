@@ -1,0 +1,113 @@
+<html>
+    <body>
+        <div class="header">
+            <div class="topheader">
+                <p>Hotline: (+100) 123 456 7890</p>
+                <p>Welcome to our market!</p>
+                <div class="options">
+                    <p>USD</p>
+                    <p>ENG</p>
+                    <p>COMPARE</p>
+                    <p>WISHLIST</p>
+                    <p>ACCOUNT</p>
+                </div>
+            </div>
+            <div class="bottomheader">
+                <h1>EMPORIUM</h1>
+                <div class="searchbox">
+                    <button class="categoriesbtn">All categories</button>
+                    <input class="searchbar" type="text" placeholder="Type to search">
+                </div>
+                <a><button class="cartbtn" (click)="gotocart()"><fa-icon icon="cart-plus">{{cartlength}}</fa-icon>Shopping Cart</button></a>
+            </div>
+            <div class="navbar">
+                <a><button class="navbtn" [routerLink]="'/'">HOME</button></a>
+                <a><button class="navbtn" (click)="displayDIv()">FASHION</button></a>    
+                <a><button class="navbtn" (click)="gotoallproduct()">JEWELLERY</button></a>
+                <a><button class="navbtn" (click)="gotoallproduct()">ELECTRONICS</button></a>
+                <a><button class="navbtn" (click)="gotoallproduct()">SPORTS</button></a>
+                <a><button class="navbtn" (click)="gotoallproduct()">PAGES</button></a>
+                <a><button class="navbtn" (click)="gotoallproduct()">CONTACT</button></a>
+                <a><button class="navbtn" (click)="gotoallproduct()">ADMIN PANEL</button></a>        
+            </div>
+        </div>
+        <div [ngStyle]="displaydiv?{'display':'flex'}:{'display':'none'}" class="fashion-div">
+            <div class="column">
+                <p>WOMEN</p>
+                <p>jackets</p>
+                <p>Tops & Blouses</p>
+                <p>Shoes & Boots</p>
+                <p>knitwear</p>
+            </div>
+            <div class="column">
+                <p>MEN</p>
+                <p>T-shirts & Polo</p>
+                <p>Shoes & Boots</p>
+                <p>Jeans</p>
+                <p>Coats</p>
+            </div>
+            <div class="column">
+                <p>KIDS</p>
+                <p>Tops</p>
+                <p>Pants & Shorts</p>
+                <p>Dresses</p>
+                <p>Skirts</p>
+                <p>Set & Body</p>
+            </div>
+            <div class="column">
+                <p>ACCESSORIES</p>
+                <p>Watches</p>
+                <p>Bags & Wallet</p>
+                <p>Sunglasses</p>
+                <p>Belt & Hats</p>
+            </div>
+            <div class="column">
+                <img src="assets/images/background/shirts.jpg">
+            </div>
+
+        </div>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
+        <div class="footer">
+            <div class="subscription">
+                <div class="subscribe-header">
+                    <h2>Subscribe our Newspaper</h2>
+                    <p>Stay up to date with our latest new and products</p>
+                </div>
+                 <div class="email-address"> 
+                    <input type="text" placeholder="Your email address">
+                    <button>Subscribe</button>
+                </div> 
+            </div>
+            <div class="contact-info">
+                <div class="links">
+                    <p class="heading1">USEFUL LINKS</p>
+                    <p>My Account</p>
+                    <p>Contact</p>
+                    <p>Compare</p>
+                    <p>Wishlist</p>
+                    <p>Checkout</p>
+                    <p>FAQ</p>
+                </div>
+                <div class="contact">
+                    <p class="heading1">CONTACT INFORMATION</p>
+                    <p>2903 Avenue Z, Brooklyn, NY</p>
+                    <p>(212) 457-2308</p>
+                    <p>contact@emporium.com</p>
+                    <p>Mon - Sun / 9:00AM - 8:00PM</p>
+                    <p>Get directions</p>
+                    <p>Routes to us</p>
+                </div>
+                <div class="googlemap">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.83988771852!2d-0.2664061945763933!3d51.52873980474533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sin!4v1694337309932!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2023 All Rights Reserved</p>
+                <p>Designed & Developed by Farzan</p>
+            </div>
+        </div>
+
+    </body>
+</html>

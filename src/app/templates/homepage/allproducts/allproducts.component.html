@@ -1,0 +1,133 @@
+<div class="container">
+    <div class="nav-routes">
+        <fa-icon icon="home"></fa-icon>
+        <p class="routerlink" [routerLink]="'/'">Homepage</p>
+        <fa-icon icon="angle-double-right"></fa-icon>
+        <p class="routerlink" [routerLink]="'/allproduct'">Allproducts</p>
+        <fa-icon icon="angle-double-right"></fa-icon>
+    </div>
+    <div class="product-container">
+        <div class="categories">
+            <button (click)="showslide()">CATEGORIES<fa-icon icon="angle-down"></fa-icon></button>
+            <div [ngStyle]="showcat?{'height':'200px'}:{'height':'0px'}" class="slide">
+                <ul>
+                    <li>All Categories</li>
+                    <li>Fashion</li>
+                    <ul>
+                        <li>women</li>
+                        <ul>
+                            <li>dresses & skirts</li>
+                            <li>jackets</li>
+                            <li>tops & blouses</li>
+                            <li>shoes & boots</li>
+                            <li>knitwear</li>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>men</li>
+                        <ul>
+                            <li>t-Shirts & polos</li>
+                            <li>tops & blouses</li>
+                            <li>jeans</li>
+                            <li>coats</li>
+                        </ul>
+                    </ul>
+                </ul>
+            </div>
+            <button>PRIZE<fa-icon icon="angle-down"></fa-icon></button>
+            <button>COLOR<fa-icon icon="angle-down"></fa-icon></button>
+            <button>SIZE<fa-icon icon="angle-down"></fa-icon></button>
+            <button>CONDITION<fa-icon icon="angle-down"></fa-icon></button>
+            <button>BRANDS<fa-icon icon="angle-down"></fa-icon></button>
+            <button>NOW STARTING AT $1379<fa-icon icon="angle-down"></fa-icon></button>
+        </div>
+        <div class="products">
+            <div class="filter-options">
+                <div>
+                    <button>Sort by Default</button>
+                </div>
+                <div>
+                    <button>show12</button>
+                </div>
+            </div>
+            <div class="allproducts">
+                <ng-container *ngFor="let item of itemlist">
+                    <div class="itemcard">
+                        <img src={{item.imgsrc}}>
+                        <p>{{item.type}}</p>
+                        <p>{{item.name}}</p>
+                        <div class="price-rating">
+                            <p>{{item.price}}</p>
+                            <div>
+                                <p>5 rating</p>
+                                <p>{{item.rating}}</p>
+                            </div>
+                        </div>
+                        <div class="cart-btn">
+                            <div class="icon-wrapper">
+                                <fa-icon icon="heart" (click)="addtowishlist(item.id,0)"></fa-icon>
+                            </div>
+                            <div class="icon-wrapper">
+                                <fa-icon icon="cart-plus" (click)="addtoCart(item.id,1)"></fa-icon>
+                            </div>
+                            <div class="icon-wrapper">
+                                <fa-icon icon="compress" (click)="addtocompare(item.id,2)"></fa-icon>
+                            </div>
+                            <div class="icon-wrapper"> 
+                                <fa-icon icon="eye" (click)="quickview(item.id)"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                
+               
+            </div>
+            <div class="page-section">
+                <button>Previous</button>
+                <p>1</p>
+                <p>2</p>
+                <button>Next</button>
+
+            </div>
+            
+        </div>
+    </div>
+    <div [ngStyle]="qckview?{'display':'flex'}:{'display':'none'}"  class="quickview" (click)="closeview()">
+        <div class="item quickviewimg">
+            <img class="item" src={{quickviewitem[0]?.imgsrc}}>
+        </div>
+        <div class="item details">
+            <h2 >{{quickviewitem[0]?.name}}</h2>
+            <p >{{quickviewitem[0]?.type}}</p>
+            <p >Available</p>
+            <p >{{quickviewitem[0]?.imgsrc}}</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                 Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula,
+                  vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+                   cubilia Curae.</p>
+            <h2>${{quickviewitem[0]?.price}}</h2>
+            <div class="color-size">
+                <div class="section">
+                    <p>Quantity:</p>
+                    <div class="square">-</div>
+                    <div class="square">1</div>
+                    <div class="square">+</div>
+                </div>
+                <div class="section">
+                    <div class="icon-wrapper">
+                        <fa-icon icon="heart"></fa-icon>
+                    </div>
+                    <div class="icon-wrapper">
+                        <fa-icon icon="cart-plus"></fa-icon>
+                    </div>
+                    <div class="icon-wrapper">
+                        <fa-icon icon="compress"></fa-icon>
+                    </div>                 
+                </div>
+            </div>
+        </div>       
+    </div>
+    <div [ngStyle]="msg?{'display':'block'}:{'display':'none'}" class="msg">
+        {{msg}}
+    </div>
+</div>

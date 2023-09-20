@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="nav-routes">
+        <fa-icon icon="home"></fa-icon>
+        <p>Homepage</p>
+        <p>Allproducts</p>
+    </div>
+    <div  class="cart-container">
+        <ng-container *ngIf="!empty">
+            <div class="headings-panel">
+                <div class="column">Product</div>
+                <div class="column">Name</div>
+                <div class="column">Price</div>
+                <div class="column">Quantity</div>
+                <div class="column">Total</div>
+                <div class="column"><button (click)="clearAll()">Clear All</button></div>
+            </div>
+            <ng-container *ngFor="let item of cartitems">
+                <div *ngIf="item" class="items-panel">
+                    <div class="column"><img src={{item.imgsrc}}></div>
+                    <div class="column">{{item.name}}</div>
+                    <div class="column">${{item.price}}</div>
+                    <div class="column">1</div>
+                    <div class="column">1</div>
+                    <div class="column"><button class="delete" (click)="deletefromcart(item.id)"><fa-icon icon="trash"></fa-icon></button></div>
+                </div>
+            </ng-container>
+            
+            <div class="billing">
+                <div class="cell">
+                    <button [routerLink]="'/'">Continue to Shopping</button>
+                </div>
+                <div class="cell">
+    
+                </div >
+                <div class="cell">
+    
+                </div>
+                <div class="cell">
+                    <div class="total-heading">               
+                        <p>Total:</p>
+                        <p>discount:</p>
+                        <p>Grand Total:</p>
+                    </div>
+                </div>
+                <div class="cell">
+                    <div class="total">
+                        <p>${{total}}</p>
+                        <p>$0</p>
+                        <p>${{total}}</p>
+                    </div>
+                </div>
+                <div class="cell">
+                    <button (click)="gotocheckout()">Proceed to Checkout</button>
+                </div>
+            </div>
+        </ng-container>      
+        <div [ngStyle]="empty?{'display':'flex'}:{'display':'none'}" class="noitems">
+            <fa-icon icon="cart-plus"></fa-icon>
+            <h1>Your Cart is Currently Empty</h1>
+            <p>Before proceed to checkout you must add some items to your shopping cart.</p>
+            <button [routerLink]="'/'">Return to Shop</button>
+        </div>     
+    </div>
+</div>
+

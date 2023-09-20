@@ -1,0 +1,110 @@
+$bgcolor:#fafafa;
+$box-shadow:rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+.container{
+    padding-top: 25px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 15px;
+    .nav-routes{
+        padding: 5px;
+        background-color: $bgcolor;
+        display: flex;
+        column-gap: 10px;
+        width:90%;
+    }
+    .cart-container{
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        width:90%;
+        box-shadow: $box-shadow;
+        .column{
+            flex: 1;
+        }
+        .headings-panel{
+            padding: 10px;
+            display: flex;
+            border-bottom: 1px solid grey;
+            button{
+                background-color: tomato;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+            }
+            
+        }
+        .items-panel{
+            padding: 10px;
+            display: flex;
+            border-bottom: 1px solid grey;
+            img{
+                height:50px;
+                width:50px;
+                object-fit: contain;
+            }
+            .delete{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 10px;
+                border-radius: 50%;
+                border: none;
+                color: white;
+                background-color: tomato;
+            }
+        }
+        .billing{
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            button{
+                padding: 10px;
+                border: none;
+                background-color: #5dbea3;
+                border-radius: 5px;
+                color: white;
+                font-weight: bold;
+            }
+            .cell{
+                flex: 1;
+                .total-heading{
+                    padding-right: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: right;
+                }
+            }
+            
+        }
+
+        .noitems{
+            display: flex;
+            flex-direction: column;
+            width:100%;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            row-gap: 20px;
+            fa-icon{
+                font-size: 10ch;
+                color: green;
+
+            }
+            button{
+                padding: 10px;
+                border: none;
+                font-weight: bold;
+                border-radius: 5px;
+                background-color: green;
+                color: white;
+            }
+        }
+
+    }
+}

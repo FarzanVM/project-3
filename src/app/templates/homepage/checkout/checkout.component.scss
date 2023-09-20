@@ -1,0 +1,222 @@
+$bgcolor:#fafafa;
+$box-shadow:rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+.container{
+    padding-top: 25px;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 15px;
+    .nav-routes{
+        padding: 5px;
+        background-color: $bgcolor;
+        display: flex;
+        column-gap: 10px;
+        width:90%;
+        p{
+            cursor: pointer;
+        }
+    }
+    .form-container{
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        .form-headings{
+            display: flex;
+            button{
+                flex: 1;
+                padding: 20px;
+                border: none;
+                background-color: white;
+                .number{
+                    font-weight: bold;
+                    padding: 10px;
+                    border-radius: 50%;
+                    color: white;
+                    background-color: green;
+                }
+            }
+            button:hover{
+                background-color: #fafafa;
+            }
+        }
+        .checkout-section{
+            margin: 15px;
+            padding: 10px;
+            display: flex;
+            .navbtnpanel{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+                justify-content: center;
+                .nextbn{
+                    width: 30px;
+                    height: 30px;
+                    border:none;
+                    border-radius: 50%;
+                    background-color: green;
+                    color: white;
+                    font-weight: bold;
+                    font-size: x-large;
+                }
+                .nextbn:disabled{
+                    background-color: rgb(215, 215, 215);
+                }
+                // fa-icon{
+                //     // font-size: xx-large;
+                //     // color: green;
+                // }
+                // fa-icon:hover{
+                //     filter: drop-shadow(2px 2px 2px rgb(201, 200, 198));
+                // }
+            }
+            .billing-address{
+                display: flex;
+                flex-direction: column;
+                row-gap: 20px;
+                column-gap: 10px;
+                form{
+                    display: flex;
+                    flex-wrap: wrap;
+                    column-gap: 10px;
+                    row-gap: 10px;
+                    .row1{
+                        flex: 1;
+                        min-width: 400px;
+                    }
+                    .row2{
+                        flex: 1;
+                    }
+                    .row3{
+                        flex: 1 100%;
+                    }
+                    input{
+                        padding: 15px;
+                        border-radius: 3px;
+                        border: 1px solid rgb(203, 202, 202);
+                    }
+                }
+                
+
+            }
+            .delivery-method{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                row-gap: 20px;
+            }
+            .payment{
+                display: flex;
+                flex-direction: column;
+                width:100%;
+                form{
+                    display: flex;
+                    width: 100%;
+                    column-gap: 10px;
+                    row-gap: 10px;
+                    flex-wrap: wrap;
+                    input{
+                        padding: 10px;
+                    }
+                    .credit-card{
+                        flex: 1 100%;
+                    }
+                    .row1{
+                        flex: 1 500px;
+                    }
+                    .row2{
+                        flex: 1;
+                        min-width: 400px;
+                    }
+                }
+            }
+            .review{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                row-gap: 20px;
+                .heading{
+                    flex: 1 100%;
+                    border-bottom: 1px solid grey;
+                }
+                .column{
+                    flex: 1;
+                    p{
+                        padding: 10px;
+                    }
+                }
+                .shopping-cart{
+                    display: flex;
+                    flex-direction: column;
+                    width:100%;
+                    .heading-panel{
+                        padding: 10px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        border-bottom: 1px solid grey;
+                    }
+                    .items-panel{
+                        padding: 10px;
+                        display: flex;
+                        flex-wrap: wrap;
+                        border-bottom: 1px solid grey;
+                        img{
+                            height:50px;
+                            width:50px;
+                            object-fit: contain;
+                        }
+                    }
+                }
+                .billing-info{
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 10px;
+                    width: 100%;
+                    .address-panel{
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        width: 100%;
+                        border-bottom: 1px solid grey;
+                        .column{
+                            flex: 1;
+                            min-width: 300px;
+                        }
+                    }
+                   
+                }
+                .grandtotal{
+                    font-weight: bold;
+                    font-size: xx-large;
+                    text-align: center;
+                }
+                
+            }
+            .confirm{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                row-gap: 20px;
+                fa-icon{
+                    color:green;
+                    font-weight: bold;
+                    font-size:8ch;
+
+                }
+                button{
+                    padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: green;
+                    color: white;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,165 @@
+<div class="container">
+    <div class="nav-routes">
+        <fa-icon icon="home"></fa-icon>
+        <p [routerLink]="'/'">Homepage</p>
+        <fa-icon icon="angle-double-right"></fa-icon>
+        <p>Allproducts</p>
+        <fa-icon icon="angle-double-right"></fa-icon>
+        <p>Checkout</p>
+    </div>
+    <div class="form-container">
+        <div class="form-headings">
+            <button  (click)="gotobilling()"><span class="number">1</span>BILLING ADDRESS</button>
+            <button (click)=" gotodelivery()"><span class="number">2</span>DELIVERY METHOD</button>
+            <button (click)="gotopayment()"><span class="number">3</span>PAYMENT METHOD</button>
+            <button (click)="gotoreview()"><span class="number">4</span>REVIEW ORDER</button>
+            <button (click)="gotoconfirm()"><span class="number">5</span>CONFIRMATION</button>
+        </div>
+        <div class="checkout-section">
+            <div [ngStyle]="{'display':section.billing}" class="billing-address">
+                <form [formGroup]="addressForm">
+                    <input class="row1" type="text" placeholder="First Name" formControlName="firstname">
+                    <input class="row1" type="text" placeholder="Last Name" formControlName="lastname">
+                    <input class="row1" type="text" placeholder="Middle Name" formControlName="middlename">
+                    <input class="row1" type="text" placeholder="Company" formControlName="company">
+                    <input class="row1" type="text" placeholder="Email" formControlName="email">
+                    <input class="row1" type="text" placeholder="Phone" formControlName="phone">
+                    <input class="row2" type="text" placeholder="Country" formControlName="country"> 
+                    <input class="row2" type="text" placeholder="City" formControlName="city">
+                    <input class="row2" type="text" placeholder="State/Province" formControlName="state">
+                    <input class="row2" type="text" placeholder="Zip/Postal Code" formControlName="zip">
+                    <input class="row3" type="text" placeholder="Address" formControlName="address">
+                    <div class="navbtnpanel"><button class="nextbn" [disabled]="!addressForm.valid" (click)="gotodelivery()"><fa-icon icon="arrow-right"></fa-icon></button></div>
+                </form>
+                
+            </div>
+            <div [ngStyle]="{'display':section.delivery}" class="delivery-method">
+                <div>
+                    <input type="radio" id="free" value="Free delivery" [formControl]="delivary">
+                    <label for="free">Free delivery</label>
+                </div>
+                <div>
+                    <input type="radio" id="standard" value="Standard delivery"  [formControl]="delivary">
+                    <label for="standard">Standard delivery</label>
+                </div>
+                <div>
+                    <input type="radio" id="express" value="Express delivery" [formControl]="delivary">
+                    <label for="express" id="express">Express delivery</label>
+                </div>
+                <div class="navbtnpanel">
+                    <button class="nextbn" [disabled]="!delivary.valid" (click)="gotobilling()"><fa-icon icon="arrow-right"></fa-icon></button>
+                    <button class="nextbn" [disabled]="!delivary.valid" (click)="gotopayment()"><fa-icon icon="arrow-left"></fa-icon></button>
+                </div>
+            </div>
+            <div [ngStyle]="{'display':section.payment}" class="payment">
+                <form [formGroup]="paymentForm">
+                    <div class="credit-card">
+                        Credit-card
+                    </div>
+                    <input class="row1" type="text" placeholder="Card Holder Name" formControlName="holdername">  
+                    <input class="row1" type="text" placeholder="Card Number" formControlName="cardnumber"> 
+                    <input class="row2" type="text" placeholder="Expiry Month" formControlName="expmonth">
+                    <input class="row2" type="text" placeholder="Expiry Year" formControlName="expyear">
+                    <input class="row2" type="text" placeholder="CVV" formControlName="cvv">
+                </form>
+                <div class="navbtnpanel">
+                    <button class="nextbn" [disabled]="!paymentForm.valid" (click)="gotodelivery()"><fa-icon icon="arrow-right"></fa-icon></button>
+                    <button class="nextbn" [disabled]="!paymentForm.valid" (click)="gotoreview()"><fa-icon icon="arrow-left"></fa-icon></button>
+                </div>
+            </div>
+            <div [ngStyle]="{'display':section.review}" class="review">
+                <div class="shopping-cart">
+                    <div class="heading">
+                        Shopping Cart
+                    </div>
+                    <div class="heading-panel">
+                        <div class="column">Product</div>
+                        <div class="column">Name</div>
+                        <div class="column">Unit Price</div>
+                        <div class="column">Quantity</div>
+                        <div class="column">Total</div>
+                    </div>
+                    <ng-container *ngFor="let item of cartitems">
+                        <div class="items-panel">
+                            <div class="column"><img src={{item.imgsrc}}></div>
+                            <div class="column">{{item.name}}</div>
+                            <div class="column">{{item.price}}</div>
+                            <div class="column">1</div>
+                            <div class="column">{{item.price}}</div>
+                        </div>
+                    </ng-container>
+                   
+                </div>
+                <div  class="billing-info">
+                    <div class="heading">
+                        Billing Information
+                    </div>
+                    <div class="address-panel">
+                        <div class="column">
+                            <p>Name</p>
+                            <p>{{addressForm.controls['firstname'].value}}</p>
+                        </div>
+                        <div class="column">
+                            <p>Email</p>
+                            <p>{{addressForm.controls['email'].value}}</p>
+                        </div>
+                        <div class="column">
+                            <p>Phone</p>
+                            <p>{{addressForm.controls['phone'].value}}</p>
+                        </div>
+                        <div class="column">
+                            <p>Country</p>
+                            <p>{{addressForm.controls['country'].value}}</p>
+                        </div>
+                    </div>
+                    <div class="address-panel">
+                        <div class="column">
+                            <p>City</p>
+                            <p>{{addressForm.controls['city'].value}}</p>
+                        </div>
+                        <div class="column">
+                           <p>State</p>
+                           <p>{{addressForm.controls['state'].value}}</p>
+                        </div>
+                        <div class="column">
+                            <p>Zip/postal Code</p>
+                            <p>{{addressForm.controls['zip'].value}}</p>
+                        </div>
+                        <div class="column">
+                            <p>Address</p>
+                            <p>{{addressForm.controls['address'].value}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="heading">
+                        Delivery Information
+                    </div>
+                    <div>
+                        {{delivary.value}} / Delivery in 7 to 14 business Days
+                    </div>
+                </div>
+                <div>
+                    <div class="heading">
+                        Payment information
+                    </div>
+                    <div >
+                        Card number:{{paymentForm.controls['cardnumber'].value}}
+                    </div>
+                </div>
+                <div class="grandtotal">Total:&nbsp;${{grandTotal}}</div>
+                <div class="navbtnpanel">
+                    <button class="nextbn"  (click)="gotopayment()"><fa-icon icon="arrow-right"></fa-icon></button>
+                    <button class="nextbn"  (click)="gotoconfirm()"><fa-icon icon="arrow-left"></fa-icon></button>
+                </div>
+            </div>
+            <div [ngStyle]="{'display':section.confirm}" class="confirm">
+                <fa-icon icon="check-circle" (click)="clicked()"></fa-icon>
+                <h1>Congratulation! Your order has been processed</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus dolor ante, ut luctus mi faucibus a. Ut eu tincidunt neque. Proin porttitor id ligula id placerat. Integer nec nulla varius, dapibus libero quis, semper eros. Aliquam erat volutpat. Proin volutpat tellus vel purus interdum euismod.</p>
+                <button [routerLink]="'/'">Return to Shop</button>
+            </div>
+        </div>
+
+    </div>
+</div>
