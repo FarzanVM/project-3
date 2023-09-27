@@ -63,6 +63,11 @@ $box-shadow:rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 
             padding: 10px;
             display: flex;
             align-items: center;
+            .grand-ttl{
+                color: tomato;
+                font-weight: bold;
+                font-size: large;
+            }
             button{
                 padding: 10px;
                 border: none;
@@ -73,6 +78,9 @@ $box-shadow:rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 
             }
             .cell{
                 flex: 1;
+                p{
+                    line-height: 0.8;
+                }
                 .total-heading{
                     padding-right: 10px;
                     display: flex;

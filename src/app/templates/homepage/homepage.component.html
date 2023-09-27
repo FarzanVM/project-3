@@ -18,11 +18,11 @@
                     <button class="categoriesbtn">All categories</button>
                     <input class="searchbar" type="text" placeholder="Type to search">
                 </div>
-                <a><button class="cartbtn" (click)="gotocart()"><fa-icon icon="cart-plus">{{cartlength}}</fa-icon>Shopping Cart</button></a>
+                <a><button class="cartbtn" (click)="gotocart()"><fa-icon icon="cart-plus"></fa-icon><span *ngIf="cartlength">{{cartlength}}</span>Shopping Cart</button></a>
             </div>
             <div class="navbar">
                 <a><button class="navbtn" [routerLink]="'/'">HOME</button></a>
-                <a><button class="navbtn" (click)="displayDIv()">FASHION</button></a>    
+                <a><button class="navbtn" (click)="displayDiv()">FASHION</button></a>    
                 <a><button class="navbtn" (click)="gotoallproduct()">JEWELLERY</button></a>
                 <a><button class="navbtn" (click)="gotoallproduct()">ELECTRONICS</button></a>
                 <a><button class="navbtn" (click)="gotoallproduct()">SPORTS</button></a>

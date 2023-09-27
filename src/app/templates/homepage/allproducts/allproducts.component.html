@@ -52,38 +52,13 @@
             </div>
             <div class="allproducts">
                 <ng-container *ngFor="let item of itemlist">
-                    <div class="itemcard">
-                        <img src={{item.imgsrc}}>
-                        <p>{{item.type}}</p>
-                        <p>{{item.name}}</p>
-                        <div class="price-rating">
-                            <p>{{item.price}}</p>
-                            <div>
-                                <p>5 rating</p>
-                                <p>{{item.rating}}</p>
-                            </div>
-                        </div>
-                        <div class="cart-btn">
-                            <div class="icon-wrapper">
-                                <fa-icon icon="heart" (click)="addtowishlist(item.id,0)"></fa-icon>
-                            </div>
-                            <div class="icon-wrapper">
-                                <fa-icon icon="cart-plus" (click)="addtoCart(item.id,1)"></fa-icon>
-                            </div>
-                            <div class="icon-wrapper">
-                                <fa-icon icon="compress" (click)="addtocompare(item.id,2)"></fa-icon>
-                            </div>
-                            <div class="icon-wrapper"> 
-                                <fa-icon icon="eye" (click)="quickview(item.id)"></fa-icon>
-                            </div>
-                        </div>
-                    </div>
+                    <app-itemcard [item]="item"></app-itemcard>
                 </ng-container>
                 
                
             </div>
             <div class="page-section">
-                <button>Previous</button>
+                <button>Prev</button>
                 <p>1</p>
                 <p>2</p>
                 <button>Next</button>
@@ -91,43 +66,5 @@
             </div>
             
         </div>
-    </div>
-    <div [ngStyle]="qckview?{'display':'flex'}:{'display':'none'}"  class="quickview" (click)="closeview()">
-        <div class="item quickviewimg">
-            <img class="item" src={{quickviewitem[0]?.imgsrc}}>
-        </div>
-        <div class="item details">
-            <h2 >{{quickviewitem[0]?.name}}</h2>
-            <p >{{quickviewitem[0]?.type}}</p>
-            <p >Available</p>
-            <p >{{quickviewitem[0]?.imgsrc}}</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                 Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula,
-                  vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                   cubilia Curae.</p>
-            <h2>${{quickviewitem[0]?.price}}</h2>
-            <div class="color-size">
-                <div class="section">
-                    <p>Quantity:</p>
-                    <div class="square">-</div>
-                    <div class="square">1</div>
-                    <div class="square">+</div>
-                </div>
-                <div class="section">
-                    <div class="icon-wrapper">
-                        <fa-icon icon="heart"></fa-icon>
-                    </div>
-                    <div class="icon-wrapper">
-                        <fa-icon icon="cart-plus"></fa-icon>
-                    </div>
-                    <div class="icon-wrapper">
-                        <fa-icon icon="compress"></fa-icon>
-                    </div>                 
-                </div>
-            </div>
-        </div>       
-    </div>
-    <div [ngStyle]="msg?{'display':'block'}:{'display':'none'}" class="msg">
-        {{msg}}
     </div>
 </div>

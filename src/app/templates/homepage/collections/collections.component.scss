@@ -95,55 +95,65 @@ $iconcolor:#A9A9A9;
     .trend-headings{
         display: flex;
         button{
+            cursor: pointer;
+            background-color: #fafafa;
+            font-weight: bold;
             flex: 1;
             border: none;
-            padding: 10px;
+            padding: 15px;
+        }
+        button:focus-within{
+            color: green;
+            border-bottom: 2px solid green;
         }
     }
     .trend-sections{
         display: flex;
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
         padding: 10px;
         overflow-x: scroll;
         column-gap: 10px;
-        .itemcard{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width:250px;
-            flex-direction: column;
-            row-gap: 15px;
-            padding: 15px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-            img{
-                width: 100%;
-                height:150px;
-                object-fit: contain;
-            }
-            .price-rating{
-                display: flex;
-                width: 100%;
-                padding-bottom: 10px;
-                justify-content: space-between;
-                border-bottom: 1px solid lightgrey;
-            }
-            .cart-btn{
-                display: flex;
-                width: 100%;
-                justify-content:space-evenly;
-                .icon-wrapper{
-                    padding: 10px;
-                    background-color: rgb(255, 255, 255);  
-                    border-radius: 50%;
-                }
-                fa-icon{
-                    color: $iconcolor;
-                    font-size: x-large;
-                }
-                .icon-wrapper:hover{
-                    background-color: rgb(201, 200, 200);
-                }
-            }
-        }
+        // .itemcard{
+        //     display: flex;
+        //     align-items: center;
+        //     justify-content: center;
+        //     min-width:250px;
+        //     flex-direction: column;
+        //     row-gap: 15px;
+        //     padding: 15px;
+        //     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        //     img{
+        //         width: 100%;
+        //         height:150px;
+        //         object-fit: contain;
+        //     }
+        //     .price-rating{
+        //         display: flex;
+        //         width: 100%;
+        //         padding-bottom: 10px;
+        //         justify-content: space-between;
+        //         border-bottom: 1px solid lightgrey;
+        //     }
+        //     .cart-btn{
+        //         display: flex;
+        //         width: 100%;
+        //         justify-content:space-evenly;
+        //         .icon-wrapper{
+        //             padding: 10px;
+        //             background-color: rgb(255, 255, 255);  
+        //             border-radius: 50%;
+        //         }
+        //         fa-icon{
+        //             color: $iconcolor;
+        //             font-size: x-large;
+        //         }
+        //         .icon-wrapper:hover{
+        //             background-color: rgb(201, 200, 200);
+        //         }
+        //     }
+        // }
     }
 }
 
@@ -175,75 +185,4 @@ $iconcolor:#A9A9A9;
         }
     }
 }
-.quickview{
-    padding: 10px;
-    width: 80%;
-    z-index: 999;
-    position: fixed;
-    display: flex;
-    flex-wrap: wrap;
-    top:30%;
-    left: 10%;
-    background-color: #ffffff;
-    column-gap: 15px;
-    .item{
-        flex:1;
-    }
-    .quickviewimg{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        min-width: 400px;
-        max-width: 450px;
-        row-gap: 10px;
-        img{
-            width:450px;
-            height:320px;
-            object-fit: contain;
-            border-radius: 5px;
-            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-        }
-        
-    }
-    .details{
-        display: flex;
-        flex-direction: column;
-        row-gap: 15px;
-        .color-size{
-            display: flex;
-            justify-content: space-between;
-            .section{
-                display: flex;
-                column-gap: 5px;
-                align-items: center;
-                .icon-wrapper{
-                    height:45px;
-                    width: 45px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border-radius: 50%;
-                }
-                .icon-wrapper:hover{
-                    background-color: rgb(182, 178, 178);
-                }
-                fa-icon{
-                    font-size: x-large;
-                    color: grey;
-                }
-            }
-        }
-    }
-}
-.msg{
-    position: fixed;
-    z-index: 2;
-    width:20%;
-    top:0;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: white;
-    font-weight: bolder;
-    text-align: center;
-    box-shadow: $box-shadow;
-}
+

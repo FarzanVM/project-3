@@ -18,8 +18,8 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     const local:any = localStorage.getItem('cartitems');
-    console.log("local",local,local.length)
-    if(local.length>0){
+    console.log("local",local,local?.length)
+    if(local){
       this.empty=false
       this.cartItemId = JSON.parse(local);
       console.log(this.cartItemId)
@@ -52,6 +52,7 @@ export class CartComponent implements OnInit {
 
   clearAll(){
     this.cartitems=[];
+    this.empty=true;
     localStorage.setItem('cartitems',"");
   }
 
@@ -66,14 +67,16 @@ export class CartComponent implements OnInit {
         newlist.push(this.cartitems[i]?.id)
       }
     }
-    console.log("newlist",newlist)
-    if(newlist[0]==undefined){
+    newlist=newlist.filter(item=>{
+      return item!=undefined
+    })
+    if(newlist.length==0){
+      this.empty=true;
       localStorage.setItem('cartitems',"");
     }
     else{
       localStorage.setItem('cartitems',JSON.stringify(newlist));
-    }
-    
+    } 
   }
 
   gotocheckout(){

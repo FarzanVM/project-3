@@ -139,32 +139,7 @@
         </div>
         <div class="products">
             <ng-container *ngFor="let item of itemlist">
-                <div class="itemcard">
-                    <img id="{{item.id}}" src={{item.imgsrc}} (click)="gotoproduct(item.id)">
-                    <p>{{item.type}}</p>
-                    <p>{{item.name}}</p>
-                    <div class="price-rating">
-                        <p>{{item.price}}</p>
-                        <div>
-                            <p>5 rating</p>
-                            <p>{{item.rating}}</p>
-                        </div>
-                    </div>
-                    <div class="cart-btn">
-                        <div class="icon-wrapper">
-                            <fa-icon icon="heart"></fa-icon>
-                        </div>
-                        <div class="icon-wrapper" (click)="addtoCart(item.id)">
-                            <fa-icon icon="cart-plus"></fa-icon>
-                        </div>
-                        <div class="icon-wrapper">
-                            <fa-icon icon="compress"></fa-icon>
-                        </div>
-                        <div class="icon-wrapper"> 
-                            <fa-icon icon="eye"></fa-icon>
-                        </div>
-                    </div>
-                </div>
+              <app-itemcard [item]="item"></app-itemcard>
             </ng-container>
         
         </div>

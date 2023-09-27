@@ -15,6 +15,17 @@ import { ProductComponent } from './templates/homepage/product/product.component
 import { CartComponent } from './templates/homepage/cart/cart.component';
 import { CheckoutComponent } from './templates/homepage/checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ItemcardComponent } from './templates/homepage/itemcard/itemcard.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { FormdirectiveDirective } from './templates/homepage/checkout/formdirective.directive';
+
 
 
 @NgModule({
@@ -25,13 +36,22 @@ import { ReactiveFormsModule } from '@angular/forms';
     AllproductsComponent,
     ProductComponent,
     CartComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    ItemcardComponent,
+    FormdirectiveDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatSlideToggleModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

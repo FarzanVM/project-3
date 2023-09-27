@@ -10,7 +10,7 @@
             <div>
                 <p>BONUS PLUS</p>
                 <p>Make fun of shopping and collect bonuses</p>
-            </div>         
+            </div>
         </div>
         <div class="offeritem">
             <div>
@@ -19,7 +19,7 @@
             <div>
                 <p>FREE SHIPPING</p>
                 <p>Free shipping on all orders over $99</p>
-            </div>   
+            </div>
         </div>
         <div class="offeritem">
             <div>
@@ -28,7 +28,7 @@
             <div>
                 <p>MONEY BACK GUARANTEE</p>
                 <p>30 Days money return guarantee</p>
-            </div>   
+            </div>
         </div>
         <div class="offeritem">
             <div>
@@ -37,8 +37,8 @@
             <div>
                 <p>ONLINE SUPPORT 24/7</p>
                 <p>Call us: (+100) 123 456 7890</p>
-            </div>   
-        </div>    
+            </div>
+        </div>
     </div>
     <div class="grid-container">
         <div class="item1"><img src="../../../../assets/images/background/laptop.jpg"></div>
@@ -50,41 +50,17 @@
     </div>
     <div class="trending">
         <div class="trend-headings">
-            <button>categories</button>
-            <button>categories</button>
-            <button>categories</button>
-            <button>categories</button>
+            <button>Featured</button>
+            <button>On Sale</button>
+            <button>Top Rated</button>
+            <button>New Arrivals</button>
         </div>
         <div class="trend-sections">
             <ng-container *ngFor="let item of itemlist">
-                <div class="itemcard">
-                    <img id="{{item.id}}" src={{item.imgsrc}} (click)="gotoproduct(item.id)">
-                    <p>{{item.type}}</p>
-                    <p>{{item.name}}</p>
-                    <div class="price-rating">
-                        <p>{{item.price}}</p>
-                        <div>
-                            <p>5 rating</p>
-                            <p>{{item.rating}}</p>
-                        </div>
-                    </div>
-                    <div class="cart-btn">
-                        <div class="icon-wrapper">
-                            <fa-icon icon="heart" (click)="addtowishlist(item.id,0)"></fa-icon>
-                        </div>
-                        <div class="icon-wrapper" (click)="addtoCart(item.id,1)">
-                            <fa-icon icon="cart-plus"></fa-icon>
-                        </div>
-                        <div class="icon-wrapper">
-                            <fa-icon icon="compress" (click)="addtocompare(item.id,2)"></fa-icon>
-                        </div>
-                        <div class="icon-wrapper"> 
-                            <fa-icon icon="eye" (click)="quickview(item.id)"></fa-icon>
-                        </div>
-                    </div>
-                </div>
+                <app-itemcard [item]="item"></app-itemcard>
             </ng-container>
-            
+
+
         </div>
     </div>
     <div class="brand-sections">
@@ -97,43 +73,5 @@
             <img src="assets/images/brands/puma.png">
             <img src="assets/images/brands/samsung.png">
         </div>
-    </div>
-    <div [ngStyle]="qckview?{'display':'flex'}:{'display':'none'}"  class="quickview" (click)="closeview()">
-        <div class="item quickviewimg">
-            <img class="item" src={{quickviewitem[0]?.imgsrc}}>
-        </div>
-        <div class="item details">
-            <h2 >{{quickviewitem[0]?.name}}</h2>
-            <p >{{quickviewitem[0]?.type}}</p>
-            <p >Available</p>
-            <p >{{quickviewitem[0]?.imgsrc}}</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                 Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula,
-                  vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                   cubilia Curae.</p>
-            <h2>${{quickviewitem[0]?.price}}</h2>
-            <div class="color-size">
-                <div class="section">
-                    <p>Quantity:</p>
-                    <div class="square">-</div>
-                    <div class="square">1</div>
-                    <div class="square">+</div>
-                </div>
-                <div class="section">
-                    <div class="icon-wrapper">
-                        <fa-icon icon="heart"></fa-icon>
-                    </div>
-                    <div class="icon-wrapper">
-                        <fa-icon icon="cart-plus"></fa-icon>
-                    </div>
-                    <div class="icon-wrapper">
-                        <fa-icon icon="compress"></fa-icon>
-                    </div>                 
-                </div>
-            </div>
-        </div>       
-    </div>
-    <div [ngStyle]="msg?{'display':'block'}:{'display':'none'}" class="msg">
-        {{msg}}
     </div>
 </div>

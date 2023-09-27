@@ -1,0 +1,70 @@
+
+<div class="itemcard">
+    <img src={{item.imgsrc}} (click)="gotoproduct(item.id)">
+    <p>{{item.type}}</p>
+    <h3>{{item.name}}</h3>
+    <div class="price-rating">
+        <p class="price">${{item.price}}</p>
+        <div>
+            <p><fa-icon icon="star"></fa-icon>
+                <fa-icon icon="star"></fa-icon>
+                <fa-icon icon="star"></fa-icon>
+                <fa-icon icon="star"></fa-icon>
+                <fa-icon icon="star"></fa-icon>
+            </p>
+            <p class="rating">{{item.rating}}</p>
+        </div>
+    </div>
+    <div class="cart-btn">
+        <div class="icon-wrapper">
+            <fa-icon icon="heart" (click)="addtowishlist(item.id,0)"></fa-icon>
+        </div>
+        <div class="icon-wrapper" (click)="addtoCart(item.id,1)">
+            <fa-icon icon="cart-plus"></fa-icon>
+        </div>
+        <div class="icon-wrapper">
+            <fa-icon icon="compress" (click)="addtocompare(item.id,2)"></fa-icon>
+        </div>
+        <div class="icon-wrapper"> 
+            <fa-icon icon="eye" (click)="quickview(item.id)"></fa-icon>
+        </div>
+    </div>
+</div>
+<div [ngStyle]="qckview?{'display':'flex'}:{'display':'none'}"  class="quickview" (click)="closeview()">
+    <div class="item quickviewimg">
+        <img class="item" src={{quickviewitem?.imgsrc}}>
+    </div>
+    <div class="item details">
+        <h2 >{{quickviewitem?.name}}</h2>
+        <p >{{quickviewitem?.type}}</p>
+        <p >Available</p>
+        <p >{{quickviewitem?.imgsrc}}</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+             Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula,
+              vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
+               cubilia Curae.</p>
+        <h2>${{quickviewitem?.price}}</h2>
+        <div class="color-size">
+            <div class="section">
+                <p>Quantity:</p>
+                <div class="square">-</div>
+                <div class="square">1</div>
+                <div class="square">+</div>
+            </div>
+            <div class="section">
+                <div class="icon-wrapper">
+                    <fa-icon icon="heart"></fa-icon>
+                </div>
+                <div class="icon-wrapper">
+                    <fa-icon icon="cart-plus"></fa-icon>
+                </div>
+                <div class="icon-wrapper">
+                    <fa-icon icon="compress"></fa-icon>
+                </div>                 
+            </div>
+        </div>
+    </div>       
+</div>
+<div [ngStyle]="msg?{'display':'block'}:{'display':'none'}" class="msg">
+    {{msg}}
+</div>
