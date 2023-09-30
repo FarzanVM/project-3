@@ -18,12 +18,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     const local:any = localStorage.getItem('cartitems');
-    console.log("local",local,local?.length)
+    // if cartitems exist in local storage
     if(local){
       this.empty=false
-      this.cartItemId = JSON.parse(local);
-      console.log(this.cartItemId)
-      
+      this.cartItemId = JSON.parse(local);  
       this.cartitems = data.filter((item) =>{
         for(let itemid of this.cartItemId){
           if(itemid===item.id){
@@ -32,20 +30,14 @@ export class CartComponent implements OnInit {
         }
         return false
       })
-
+      // finding the total price
       for(let item of this.cartitems){
         this.total+=item.price;
       }
-      console.log("total",this.total)
-
-
     }
-   
-    console.log(this.cartitems);
 
     if(!local){
       this.empty=true;
-      console.log("items empty")
     }
     
   }
@@ -56,6 +48,7 @@ export class CartComponent implements OnInit {
     localStorage.setItem('cartitems',"");
   }
 
+  // deleting from cart items and updating the localstorage
   deletefromcart(id:number){
     let newlist:number[]=[]
     for(let i=0;i<this.cartitems.length;i++){

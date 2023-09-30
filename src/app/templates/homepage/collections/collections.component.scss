@@ -11,13 +11,31 @@ $iconcolor:#A9A9A9;
     row-gap: 15px;
 }
 .image-container{
+    position: relative;
     width:90%;
     height:500px;
     background-color: green;
-    img{
+    img{      
         width:100%;
         height: 100%;
         object-fit: cover;
+    }
+    .imgnav{
+        top:50%;
+        position: absolute;
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        button{
+            background-color: #8EAC50;
+            color:white;
+            font-size: medium;
+            height:40px;
+            width: 40px;
+            border: none;
+            border-radius: 50%;
+        }
     }
 }
 .offers{

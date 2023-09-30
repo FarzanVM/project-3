@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 export class FormdirectiveDirective {
 
   constructor(private el:ElementRef) { }
-
+  // when invalid form is submitted either empty or  invalid every invalid input turns reds
   @HostListener('submit')
       onFormSubmit(){
         const invalidControl = this.el.nativeElement.querySelectorAll('.ng-invalid')

@@ -1,0 +1,30 @@
+.alert-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:300px;
+    .btn-class{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .discard{
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: tomato;
+            font-weight: bold;
+            color: white;
+        }
+        .proceed{
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: green;
+            font-weight: bold;
+            color: white;
+        }
+
+    }
+}

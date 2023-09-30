@@ -5,6 +5,9 @@ import { CustomValidator } from './custom-validator';
 import { countries, states, month, year } from './country';
 import { distinctUntilChanged } from 'rxjs';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
+import { myHolidayDates } from './holidays';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { AlertComponent } from './alert/alert.component';
 
 @Component({
   selector: 'app-checkout',
@@ -16,8 +19,7 @@ export class CheckoutComponent implements OnInit {
   addressForm: FormGroup | any;
   paymentForm: FormGroup | any;
   deliveryForm: FormGroup | any;
-  // delivary:any;
-  // delivarydate:any;
+ 
   cartItemId: number[] = []
   cartitems: any[] = [];
   section = { billing: "none", delivery: "none", payment: "none", review: "none", confirm: "none" }
@@ -27,47 +29,38 @@ export class CheckoutComponent implements OnInit {
   months: string[] = []
   years: string[] = []
 
-  opencountry: boolean = false;
-  openstate: boolean = false;
-  countrydirty: boolean = false;
-  statedirty: boolean = false;
-  openmonth: boolean = false;
-  openyear: boolean = false;
-  monthdirty: boolean = false;
-  yeardirty: boolean = false;
   grandTotal: number = 0;
 
   confirm: boolean = false;
   payment: boolean = false;
   delivery: boolean = false;
   review: boolean = false;
+  billing:boolean=false;
+
+  myHolidayDates:any[]=[]
 
   // getting todays and last of 7 days
   today: Date = new Date(new Date().toISOString().split('T')[0]);
   lastdate: any = new Date(new Date(new Date().getTime() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
 
-
-
-
-  numberPattern = "^\d{10}$";
-
-  constructor(private fb: FormBuilder,private renderer:Renderer2) { }
+  constructor(private fb: FormBuilder,private renderer:Renderer2,private dialog:MatDialog) { }
 
   ngOnInit(): void {
+    this.billing = true;
+    this.myHolidayDates=myHolidayDates;
 
     this.countries = countries;
     this.states = states;
     this.months = month;
     this.years = year;
-    console.log("today", this.today);
-    console.log("lastdate", this.lastdate)
-    // creating forms
+   
+    // Address Form
     this.addressForm = this.fb.group({
       firstname: new FormControl('', [Validators.required, Validators.minLength(1)]),
       lastname: new FormControl('', [Validators.required, Validators.minLength(1)]),
       middlename: new FormControl(''),
       company: new FormControl(''),
-      email: new FormControl('', [Validators.required, Validators.email]),
+      email: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       phone: new FormControl('', [Validators.required, Validators.pattern("^[0-9]{10}$")]),
       country: new FormControl('', Validators.required),
       city: new FormControl('', Validators.required),
@@ -76,7 +69,7 @@ export class CheckoutComponent implements OnInit {
       address: new FormControl('', [Validators.required, Validators.maxLength(20)]),
     })
 
-    // formcontrol for delivary
+    // delivery Form
     this.deliveryForm = this.fb.group({
       deliverymthd: new FormControl('Free delivery', Validators.required),
       deliverydate: new FormControl('')
@@ -90,11 +83,10 @@ export class CheckoutComponent implements OnInit {
       expyear: new FormControl('', [Validators.required]),
       cvv: new FormControl('', [Validators.required]),
     })
-    // adding validation  to deliverydate type is express delivery
+    // adding validation  to deliverydate when type is express delivery
     this.deliveryForm.get('deliverymthd').valueChanges.subscribe((data: any) => {
-      console.log(data)
       if (data == "Express delivery") {
-        this.deliveryForm.get('deliverydate').setValidators([Validators.required, CustomValidator.validdate])
+        this.deliveryForm.get('deliverydate').setValidators([Validators.required])
         this.deliveryForm.get('deliverydate').updateValueAndValidity();
       }
       else {
@@ -106,19 +98,17 @@ export class CheckoutComponent implements OnInit {
     })
 
     this.addressForm.valueChanges.subscribe((data: any) => {
-      console.log(data)
+      // console.log(data)
     })
     this.paymentForm.valueChanges.subscribe((data: any) => {
-      console.log(data)
+      // console.log(data)
     })
 
+    // getting iems which are gonna purchase
     const local: any = localStorage.getItem('cartitems');
-    // this.cartItemId = JSON.parse(local);
-    console.log(this.cartItemId)
     if (local) {
       this.cartItemId = JSON.parse(local);
       this.cartitems = data.filter((item) => {
-        console.log(item.id)
         for (let itemid of this.cartItemId) {
           if (itemid === item.id) {
             return true
@@ -132,51 +122,25 @@ export class CheckoutComponent implements OnInit {
       }
 
     }
-    console.log(this.cartitems);
     this.section.billing = "flex"
   }
-  myHolidayDates = [
-    {
-      date:new Date("10/1/2023"),
-      name:"Christmas"
-    },
-    {
-      date:new Date("10/20/2023"),
-      name:"Vishu"
-    },
-    {
-      date: new Date("11/17/2023"),
-      name:"Onam"
-    },
-    {
-      date:new Date("11/25/2023"),
-      name:"Diwali"
-    },
-    {
-      date:new Date("10/4/2023"),
-      name:"New Year"
-    },
-    {
-      date: new Date("12/7/2023"),
-      name:"Independence Day"
-    },
-    {
-      date:new Date("12/12/2023"),
-      name:"Republic Day"
-    },
-    {
-      date:new Date("9/11/2023"),
-      name:"World Cup"
-    },
-    {
-      date:new Date("12/26/2023"),
-      name:"Anime Day"
-    },
-    {
-      date:new Date("12/25/2023"),
-      name:"National Day"
-    }
-  ];
+
+  // opening warning
+  openDialog(){
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    let dialogRef = this.dialog.open(AlertComponent, dialogConfig);
+    dialogRef.afterClosed().subscribe(res =>{
+      if(res){
+        this.gotoconfirm();
+      }    
+    })
+  }
+
+ 
   // styling holidays
   dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
 
@@ -187,50 +151,50 @@ export class CheckoutComponent implements OnInit {
     }
     return "";
   }
+  
+// function to get the holiday on each month and adding description
   displayHoliday(){
-    console.log("yeap")
     let elements = document.querySelectorAll(".holiday");
-    console.log("elements",elements)
-    // let x = elements[0].querySelectorAll(".mat-calendar-body-cell");
-    // console.log("body cells",x)
     elements.forEach(el=>{
       let date=el.getAttribute("aria-label")
       if (date){
         let newdate=new Date(date)
-        let spec:any;
+
         for(let item of this.myHolidayDates){
           if(item.date.getTime() == newdate.getTime()){
+
             el.setAttribute('title',item.name)
+            let div = el.querySelectorAll('div')[0];
+  
+            div.classList.add('tooltip')
+      
+            let spans = el.querySelectorAll('span');
+            if(spans.length>0){
+              let span = spans[0];
+              span.innerHTML=item.name;
+            }
+            else{
+              let span = document.createElement('span');
+              span.innerHTML=item.name;
+              span.classList.add('tooltiptext')
+              div.appendChild(span);
+            }
+            
             break;
           }
         }
         
       }
-      console.log(date)
-
     })
-    // const label:string|null = elements[0].getAttribute("aria-label")
-    // console.log("label",label);
-    // if(label){
-    //   const date = new Date(label)
-    //   const date2= new Date("10/1/2023")
-    //   console.log("date",date);
-    //   console.log("date2",date2);
-    // }
-    
-    // elements[0].setAttribute('title',"Happy Christmas")
-    // elements[0].ariaLabel = "Happy Christmas"
   }
+  // function to adding a description/tooltip to holidays triggered for each month change
   calOpened(event: Event | void) {
     setTimeout(() =>{
-      console.log("here arrived")
       let buttons = document.querySelectorAll("mat-calendar .mat-icon-button");
-      console.log(buttons)
       buttons.forEach(btn=>
         this.renderer.listen(btn,'click',()=>{
           setTimeout(()=>{
             this.displayHoliday();
-            console.log("hovered",btn)
           })   
         })
       )
@@ -239,59 +203,15 @@ export class CheckoutComponent implements OnInit {
    
   }
 
-  // myHolidayFilter = (d: Date | null): boolean => {
-
-  //   const time = d?.getTime();
-  //   return !this.myHolidayDates.find(x => x.getTime() == time);
-
-  // }
-  // styling holiday
-  // filtering weekends
+  // filtering weekends and disabling them
   filterWeekends = (d: Date | null): boolean => {
     const day = d?.getDay();
     const time = d?.getTime();
 
     return day !== 0 && day !== 6 && !this.myHolidayDates.find(x => x.date.getTime() == time) ;
-    // && !this.myHolidayDates.find(x => x.getTime() == time)
-  }
-  openCountry() {
-    this.opencountry = !this.opencountry;
-    this.countrydirty = true
-  }
 
-  openState() {
-    this.openstate = !this.openstate;
-    this.statedirty = true;
   }
-
-  openMonth() {
-    this.openmonth = !this.openmonth;
-    this.monthdirty = true;
-  }
-
-  openYear() {
-    this.openyear = !this.openyear;
-    this.yeardirty = true;
-  }
-  selectCountry(val: string) {
-    this.opencountry = !this.opencountry
-    this.addressForm.get('country').setValue(val);
-    console.log(this.addressForm.get('country').value)
-  }
-
-  selectState(val: string) {
-    this.openstate = !this.openstate;
-    this.addressForm.get('state').setValue(val);
-  }
-  selectMonth(val: string) {
-    this.openmonth = !this.openmonth;
-    this.paymentForm.get('expmonth').setValue(val);
-  }
-  selectYear(val: string) {
-    this.openyear = !this.openyear;
-    this.paymentForm.get('expyear').setValue(val);
-  }
-
+//  navigation through section
   gotobilling() {
     this.section.delivery = "none"
     this.section.billing = "flex"
@@ -299,7 +219,6 @@ export class CheckoutComponent implements OnInit {
     this.section.review = "none"
     this.section.confirm = "none";
   }
-
   gotodelivery() {
     this.delivery = true;
     this.section.delivery = "flex"
@@ -330,6 +249,7 @@ export class CheckoutComponent implements OnInit {
     this.delivery = false;
     this.review = false;
     this.payment = false;
+    this.billing=false;
     this.section.delivery = "none"
     this.section.billing = "none"
     this.section.payment = "none"

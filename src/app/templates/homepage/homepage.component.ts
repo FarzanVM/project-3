@@ -12,14 +12,17 @@ export class HomepageComponent implements OnInit{
   cartlength:number=0;
   displaydiv:boolean=false
   constructor(private router:Router) { }
- 
-  ngOnInit(): void {
+
+  ngDoCheck(){
+    // if any change happends in the application look for cartitems
     const item = localStorage.getItem('cartitems');
-    console.log("cart",item)
     if(item){
       const l = JSON.parse(item)
       this.cartlength=l.length;
     }
+  }
+ 
+  ngOnInit(): void {
   }
   gotoallproduct(){
     this.router.navigate(['/','allproduct'])

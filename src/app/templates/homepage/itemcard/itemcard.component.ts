@@ -36,21 +36,17 @@ export class ItemcardComponent implements OnInit {
   }
 
   quickview(id:number){
-    console.log(id)
+    // getting the id of product for quickview
     this.qckview = !this.qckview;
     if(this.qckview==true){
       this.quickviewitem = this.item
       }
-    console.log(this.quickviewitem[0].imgsrc)
   }
   addtoCart(id:number,msgIndex:number){
     const cartitem = localStorage.getItem('cartitems');
     if(cartitem){
-      console.log(cartitem,"cart")
       this.cartitem= JSON.parse(cartitem);
-      console.log(this.cartitem,"now")
       this.cartitem.push(id)
-      console.log("here",this.cartitem)
     }
     else{
       this.cartitem.push(id)

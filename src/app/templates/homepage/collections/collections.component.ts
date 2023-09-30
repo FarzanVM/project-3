@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class CollectionsComponent implements OnInit {
 
+  index=0;
+  imglist:string[]=["assets/images/background/shoes.jpg","assets/images/background/shirts.jpg","assets/images/background/watch.jpg"]
   msglist:string[] = ["Added to wishlist","Added to Cart","Added to Compare"]
   msg:string|any="";
 
@@ -23,14 +25,25 @@ export class CollectionsComponent implements OnInit {
   }
  
   ngOnInit(): void {
+    // getting item data from json
     this.itemlist = data;
-    console.log(this.itemlist)
-    for(let item of this.itemlist){
-      console.log(item.imgsrc)
+  }
+
+  goleft(i:number){
+    this.index+=i
+    if(this.index<0){
+      this.index=this.imglist.length-1
     }
+
+  }
+  goright(i:number){
+    this.index+=i
+    if(this.index>=this.imglist.length){
+      this.index=0;
+    }
+
   }
   gotoproduct(id:number){
-    console.log(id)
     this.router.navigate(['/','product',id])
   }
 }

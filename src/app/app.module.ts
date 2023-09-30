@@ -19,13 +19,16 @@ import { ItemcardComponent } from './templates/homepage/itemcard/itemcard.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
+import {MatRadioModule} from '@angular/material/radio';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 import { FormdirectiveDirective } from './templates/homepage/checkout/formdirective.directive';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { AlertComponent } from './templates/homepage/checkout/alert/alert.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -38,7 +41,8 @@ import { FormdirectiveDirective } from './templates/homepage/checkout/formdirect
     CartComponent,
     CheckoutComponent,
     ItemcardComponent,
-    FormdirectiveDirective
+    FormdirectiveDirective,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,11 @@ import { FormdirectiveDirective } from './templates/homepage/checkout/formdirect
     MatFormFieldModule, 
     MatInputModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    MatRadioModule,
+    MatIconModule,
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

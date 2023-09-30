@@ -16,14 +16,10 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.queryroute.snapshot.params['id'];
     this.item = data.filter(data=>data.id==this.id)
-    console.log(this.item);
     this.itemlist=data
   }
   gotoproduct(id:number){
     this.router.navigate(['/','product',id]);
   }
-  addtoCart(id:number){
-    
-  }
-
+  
 }
