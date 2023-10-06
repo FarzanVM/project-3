@@ -10,10 +10,10 @@
     <div class="form-container">
         <div class="form-headings">
             <button [disabled]="!billing" (click)="gotobilling()"><span [ngStyle]=" !billing ?{'background-color':'lightgrey'}:{'background-color':'green'}" class="number">1</span>BILLING ADDRESS</button>
-            <button  (click)=" gotodelivery()"><span [ngStyle]=" !delivery ?{'background-color':'lightgrey'}:{'background-color':'green'}" class="number">2</span>DELIVERY METHOD</button>
+            <button [disabled]="!delivery" (click)=" gotodelivery()"><span [ngStyle]=" !delivery ?{'background-color':'lightgrey'}:{'background-color':'green'}" class="number">2</span>DELIVERY METHOD</button>
             <button [disabled]="!payment" (click)="gotopayment()"><span [ngStyle]="!payment ?{'background-color':'lightgrey'}:{'background-color':'green'}" class="number">3</span>PAYMENT
                 METHOD</button>
-            <button [disabled]="!review" (click)="gotoreview()"><span [ngStyle]="!review ?{'background-color':'lightgrey'}:{'background-color':'green'}" class="number">4</span>REVIEW
+            <button [disabled]="!review"  (click)="gotoreview()"><span [ngStyle]="!review ?{'background-color':'lightgrey'}:{'background-color':'green'}" class="number">4</span>REVIEW
                 ORDER</button>
             <button [disabled]="!confirm" (click)="gotoconfirm()"><span [ngStyle]="!confirm ?{'background-color':'lightgrey'}:{'background-color':'green'}" class="number">5</span>CONFIRMATION</button>
         </div>
@@ -114,9 +114,6 @@
                         <p class="invalid-msg"
                             *ngIf="addressForm.get('state').touched  && addressForm.get('state').invalid">state required
                         </p>
-                        <!-- <div *ngIf="openstate" class="dropdown">
-                            <button *ngFor="let state of states" (click)="selectState(state)">{{state}}</button>
-                        </div> -->
                     </div>
                     <div class="row2">
                       
@@ -253,6 +250,7 @@
             </form>
             </div>
             <div [ngStyle]="{'display':section.review}" class="review">
+                {{user}}
                 <div class="shopping-cart">
                     <div class="heading">
                         Shopping Cart
@@ -282,37 +280,37 @@
                     <div class="address-panel">
                         <div class="column">
                             <p>Name</p>
-                            <p>{{addressForm.controls['firstname'].value}}</p>
+                            <p>{{user?.name}}</p>
                         </div>
                         <div class="column">
                             <p>Email</p>
-                            <p>{{addressForm.controls['email'].value}}</p>
+                            <p>{{user?.email}}</p>
                         </div>
                         <div class="column">
                             <p>Phone</p>
-                            <p>{{addressForm.controls['phone'].value}}</p>
+                            <p>{{user?.phone}}</p>
                         </div>
                         <div class="column">
                             <p>Country</p>
-                            <p>{{addressForm.controls['country'].value}}</p>
+                            <p>{{user?.country}}</p>
                         </div>
                     </div>
                     <div class="address-panel">
                         <div class="column">
                             <p>City</p>
-                            <p>{{addressForm.controls['city'].value}}</p>
+                            <p>{{user?.city}}</p>
                         </div>
                         <div class="column">
                             <p>State</p>
-                            <p>{{addressForm.controls['state'].value}}</p>
+                            <p>{{user?.state}}</p>
                         </div>
                         <div class="column">
                             <p>Zip/postal Code</p>
-                            <p>{{addressForm.controls['zip'].value}}</p>
+                            <p>{{user?.zip}}</p>
                         </div>
                         <div class="column">
                             <p>Address</p>
-                            <p>{{addressForm.controls['address'].value}}</p>
+                            <p>{{user?.address}}</p>
                         </div>
                     </div>
                 </div>
@@ -321,9 +319,9 @@
                         Delivery Information
                     </div>
                     <div>
-                        {{this.deliveryForm.get('deliverymthd').value}} / <span
-                            *ngIf="this.deliveryForm.get('deliverydate').value">Delivery in {{
-                            this.deliveryForm.get('deliverydate').value  | date:'dd/MM/yyyy' }}</span>
+                        {{user?.deliverytype}} / <span
+                            *ngIf="user?.deliverydate">Delivery in {{
+                                user?.deliverydate | date:'dd/MM/yyyy' }}</span>
                           
                     </div>
                 </div>
@@ -332,7 +330,7 @@
                         Payment information
                     </div>
                     <div>
-                        Card number:{{paymentForm.controls['cardnumber'].value}}
+                        Card number:{{user?.cardno}}
                     </div>
                 </div>
                 <div class="grandtotal">Total:&nbsp;${{grandTotal}}</div>

@@ -60,7 +60,7 @@
             <button>New Arrivals</button>
         </div>
         <div class="trend-sections">
-            <ng-container *ngFor="let item of itemlist">
+            <ng-container *ngFor="let item of itemlist$ | async">
                 <app-itemcard [item]="item"></app-itemcard>
             </ng-container>
 

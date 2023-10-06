@@ -1,7 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import data from '../../../../data/data.json'
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+// importing actions
+import * as AllActions from "../../../store/product.action"
+import { allProductSelector } from '../../../store/store.selector';
+import { Observable } from 'rxjs';
+import { AllProduct, Product } from 'src/shared/interfaces';
 
 @Component({
   selector: 'app-collections',
@@ -15,18 +20,19 @@ export class CollectionsComponent implements OnInit {
   msglist:string[] = ["Added to wishlist","Added to Cart","Added to Compare"]
   msg:string|any="";
 
-  itemlist:any[] =[];
-  // cartitem:number[]=[];
+  // Observable of type Product list is the data we get from the store
+  itemlist$:Observable<Product[]>;
+
   qckview:boolean=false;
   quickviewitem:any[]=[]
 
-  constructor(private sanitizer: DomSanitizer,private router:Router) { 
-    
+  constructor(private sanitizer: DomSanitizer,private router:Router,private store:Store) { 
   }
  
   ngOnInit(): void {
-    // getting item data from json
-    this.itemlist = data;
+   
+    this.store.dispatch(AllActions.getAllProduct())
+    this.itemlist$ = this.store.pipe(select(allProductSelector))
   }
 
   goleft(i:number){

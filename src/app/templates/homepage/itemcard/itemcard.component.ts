@@ -1,7 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import data from '../../../../data/data.json'
+import * as AllActions from "../../../store/product.action"
 import {item} from'./item';
 import { Router } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { Product } from 'src/shared/interfaces';
+import { cartItemsSelector } from '../../../store/store.selector';
 
 @Component({
   selector: 'app-itemcard',
@@ -11,14 +14,15 @@ import { Router } from '@angular/router';
 export class ItemcardComponent implements OnInit {
   @Input() item:item|any={}
 
-  msglist:string[] = ["Added to wishlist","Added to Cart","Added to Compare"]
+  msglist:string[] = ["Added to wishlist","Added to Cart","Added to Compare","Already Exist in Cart"]
   msg:string|any="";
 
   qckview:boolean=false;
   quickviewitem:item|any={};
   cartitem:number[]=[];
+  exist:boolean;
   // itemlist:any[]=[]
-  constructor(private router:Router) { }
+  constructor(private router:Router,private store:Store) { }
 
   ngOnInit(): void {
     localStorage.removeItem('cartitems')
@@ -42,22 +46,31 @@ export class ItemcardComponent implements OnInit {
       this.quickviewitem = this.item
       }
   }
-  addtoCart(id:number,msgIndex:number){
-    const cartitem = localStorage.getItem('cartitems');
-    if(cartitem){
-      this.cartitem= JSON.parse(cartitem);
-      this.cartitem.push(id)
+
+  addtoCart(product:Product,msgIndex:number){
+    // checking if item already added to cart
+    this.store.pipe(select(cartItemsSelector)).subscribe(items=>{
+      for(let item of items){
+        if(item==product){
+          this.exist=true;
+        }
+      }
+    })
+
+    if(this.exist){
+      this.msg = this.msglist[3];
+        setTimeout(() =>{
+        this.msg = ""
+      },3000)
     }
     else{
-      this.cartitem.push(id)
+      this.store.dispatch(AllActions.addToCart({product}))
+      this.msg = this.msglist[msgIndex];
+        setTimeout(() =>{
+        this.msg = ""
+      },3000)
     }
-    // this.cartitem.push(id);
-    // console.log(this.cartitem)
-    localStorage.setItem('cartitems',JSON.stringify(this.cartitem));
-    this.msg = this.msglist[msgIndex];
-    setTimeout(() =>{
-      this.msg = ""
-    },3000)
+   
   }
   addtocompare(id:number,msgIndex:number){
     this.msg = this.msglist[msgIndex];

@@ -5,29 +5,29 @@
         <fa-icon icon="angle-double-right"></fa-icon>
         <p class="routerlink" [routerLink]="'/allproduct'">Allproducts</p>
         <fa-icon icon="angle-double-right"></fa-icon>
-        <p>{{item[0].name}}</p>
+        <p>{{(item|async)[0].name}}</p>
     </div>
     <div class="product-container">
         <div class="item image-container">
             <div class="main-image">
-                <img src={{item[0].imgsrc}}>
+                <img src={{(item|async)[0].imgsrc}}>
             </div>
             <div class="sub-images">
-                <img  class="item" src={{item[0].imgsrc}}>
-                <img  class="item" src={{item[0].imgsrc}}>
-                <img  class="item" src={{item[0].imgsrc}}>
+                <img  class="item" src={{(item|async)[0].imgsrc}}>
+                <img  class="item" src={{(item|async)[0].imgsrc}}>
+                <img  class="item" src={{(item|async)[0].imgsrc}}>
             </div>
         </div>
         <div class="item details">
-            <h2>{{item[0].name}}</h2>
-            <p>Category:{{item[0].type}}</p>
+            <h2>{{(item|async)[0].name}}</h2>
+            <p>Category:{{(item|async)[0].type}}</p>
             <p>Availability:instock</p>
-            <p>{{item[0].rating}}</p>
+            <p>{{(item|async)[0].rating}}</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                  Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula,
                   vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
                    cubilia Curae.</p>
-            <h2>$<span>{{item[0].price}}</span></h2>
+            <h2>$<span>{{(item|async)[0].price}}</span></h2>
             <div class="color-size">
                 <div class="section">
                     <p>Select color:</p>
@@ -138,7 +138,7 @@
             Related products
         </div>
         <div class="products">
-            <ng-container *ngFor="let item of itemlist">
+            <ng-container *ngFor="let item of itemlist$|async">
               <app-itemcard [item]="item"></app-itemcard>
             </ng-container>
         

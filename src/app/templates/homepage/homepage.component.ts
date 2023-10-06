@@ -20,6 +20,9 @@ export class HomepageComponent implements OnInit{
       const l = JSON.parse(item)
       this.cartlength=l.length;
     }
+    else{
+      this.cartlength=0;
+    }
   }
  
   ngOnInit(): void {

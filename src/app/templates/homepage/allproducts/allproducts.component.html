@@ -51,11 +51,9 @@
                 </div>
             </div>
             <div class="allproducts">
-                <ng-container *ngFor="let item of itemlist">
+                <ng-container *ngFor="let item of itemlist$ | async">
                     <app-itemcard [item]="item"></app-itemcard>
-                </ng-container>
-                
-               
+                </ng-container>   
             </div>
             <div class="page-section">
                 <button>Prev</button>

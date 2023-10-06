@@ -1,0 +1,161 @@
+{
+  "allproducts": [
+    {
+      "id": 1,
+      "imgsrc": "assets/images/products/headset.png",
+      "type": "Electronics",
+      "name": "HeadPhone",
+      "price": 300,
+      "rating": "12 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 2,
+      "imgsrc": "assets/images/products/iphone.png",
+      "type": "Electronics",
+      "name": "IPhone",
+      "price": 780,
+      "rating": "12 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 3,
+      "imgsrc": "assets/images/products/keyboard.png",
+      "type": "Electronics",
+      "name": "Keyboard",
+      "price": 200,
+      "rating": "12 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 4,
+      "imgsrc": "assets/images/products/macbook.png",
+      "type": "Electronics",
+      "name": "macbook",
+      "price": 450,
+      "rating": "12 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 5,
+      "imgsrc": "assets/images/products/pc.png",
+      "type": "Electronics",
+      "name": "All in-one-pc",
+      "price": 1000,
+      "rating": "12 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 6,
+      "imgsrc": "assets/images/products/jordan.jpg",
+      "type": "Footwear",
+      "name": "Nike Air",
+      "price": 2130,
+      "rating": "20 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 7,
+      "imgsrc": "assets/images/products/RedNecklace.png",
+      "type": "Jewellery",
+      "name": "Red Necklace",
+      "price": 3000,
+      "rating": "20 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 7,
+      "imgsrc": "assets/images/products/red-earrings.jpg",
+      "type": "Jewellery",
+      "name": "Red Earrings",
+      "price": 2700,
+      "rating": "15 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 8,
+      "imgsrc": "assets/images/products/golden_watches.jpg",
+      "type": "Jewellery",
+      "name": "Golden Watch",
+      "price": 4200,
+      "rating": "15 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 9,
+      "imgsrc": "assets/images/products/football.jpg",
+      "type": "Sports",
+      "name": "Football",
+      "price": 70,
+      "rating": "15 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 10,
+      "imgsrc": "assets/images/products/boot.jpg",
+      "type": "Sports",
+      "name": "Nike White",
+      "price": 90,
+      "rating": "15 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    }, {
+      "id": 11,
+      "imgsrc": "assets/images/products/bootyellow.png",
+      "type": "Sports",
+      "name": "Nike Yellow",
+      "price": 89,
+      "rating": "15 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    }, {
+      "id": 12,
+      "imgsrc": "assets/images/products/basketball.png",
+      "type": "Sports",
+      "name": "BasketBall",
+      "price": 110,
+      "rating": "15 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    }, {
+      "id": 13,
+      "imgsrc": "assets/images/products/tennis ball.png",
+      "type": "Sports",
+      "name": "Tennis Ball",
+      "price": 65,
+      "rating": "15 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 14,
+      "imgsrc": "assets/images/products/racket.png",
+      "type": "Sports",
+      "name": "Badminton Racket",
+      "price": 82,
+      "rating": "15 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    },
+    {
+      "id": 15,
+      "imgsrc": "assets/images/products/speaker.png",
+      "type": "Electronics",
+      "name": "JBL Speaker",
+      "price": 82,
+      "rating": "15 rating",
+      "addedtocart": false,
+      "addedtowishlist": false
+    }
+  ]
+}

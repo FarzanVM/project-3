@@ -18,18 +18,22 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ItemcardComponent } from './templates/homepage/itemcard/itemcard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatRadioModule} from '@angular/material/radio';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatLegacySlideToggleModule as MatSlideToggleModule } from '@angular/material/legacy-slide-toggle';
+import {MatLegacyRadioModule as MatRadioModule} from '@angular/material/legacy-radio';
+import {MatLegacyInputModule as MatInputModule} from '@angular/material/legacy-input';
+import {MatLegacyFormFieldModule as MatFormFieldModule} from '@angular/material/legacy-form-field';
 import {MatNativeDateModule} from '@angular/material/core';
-import {MatSelectModule} from '@angular/material/select';
+import {MatLegacySelectModule as MatSelectModule} from '@angular/material/legacy-select';
 import {MatIconModule} from '@angular/material/icon';
 import { FormdirectiveDirective } from './templates/homepage/checkout/formdirective.directive';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatLegacyDialogModule as MatDialogModule} from '@angular/material/legacy-dialog';
 import { AlertComponent } from './templates/homepage/checkout/alert/alert.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
-
+import {MatLegacyTooltipModule as MatTooltipModule} from '@angular/material/legacy-tooltip';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { productReducer } from './store/product.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { ProductEffects } from './store/product.effect';
 
 @NgModule({
   declarations: [
@@ -59,7 +63,10 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatRadioModule,
     MatIconModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    HttpClientModule,
+    StoreModule.forRoot({'productsx':productReducer}),
+    EffectsModule.forRoot([ProductEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

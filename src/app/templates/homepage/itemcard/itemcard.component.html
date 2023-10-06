@@ -19,7 +19,7 @@
         <div class="icon-wrapper">
             <fa-icon icon="heart" (click)="addtowishlist(item.id,0)"></fa-icon>
         </div>
-        <div class="icon-wrapper" (click)="addtoCart(item.id,1)">
+        <div class="icon-wrapper" (click)="addtoCart(item,1)">
             <fa-icon icon="cart-plus"></fa-icon>
         </div>
         <div class="icon-wrapper">
@@ -36,14 +36,14 @@
     </div>
     <div class="item details">
         <h2 >{{quickviewitem?.name}}</h2>
-        <p >{{quickviewitem?.type}}</p>
-        <p >Available</p>
-        <p >{{quickviewitem?.imgsrc}}</p>
+        <p >Category:{{quickviewitem?.type}}</p>
+        <p >Availabaility:Available</p>
+        <p >{{quickviewitem?.rating}}</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
              Ut congue eleifend nulla vel rutrum. Donec tempus metus non erat vehicula,
               vel hendrerit sem interdum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
                cubilia Curae.</p>
-        <h2>${{quickviewitem?.price}}</h2>
+        <h2 class="price">${{quickviewitem?.price}}</h2>
         <div class="color-size">
             <div class="section">
                 <p>Quantity:</p>

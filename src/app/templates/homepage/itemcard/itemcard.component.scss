@@ -1,17 +1,24 @@
 $hvrcolor:#F8F8F8;
 $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 $iconcolor:#A9A9A9;
+.price{
+    font-size: large;
+    font-weight: bold;
+    color: tomato;
+}
 .itemcard{
     float: left;
     display: flex;
     align-items: center;
     justify-content: center;
     min-width:235px;
+    max-width: 235px;
     flex-direction: column;
     // row-gap: 10px;
     padding: 15px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     img{
+        cursor: pointer;
         width: 100%;
         height:150px;
         object-fit: contain;
@@ -25,11 +32,6 @@ $iconcolor:#A9A9A9;
         width: 100%;
         justify-content: space-between;
         border-bottom: 1px solid lightgrey;
-        .price{
-            font-size: large;
-            font-weight: bold;
-            color: tomato;
-        }
         fa-icon{
             color:#FDCC0D;
         }
@@ -61,13 +63,14 @@ $iconcolor:#A9A9A9;
     }
 }
 .quickview{
+    box-shadow: $box-shadow;
     padding: 10px;
     width: 80%;
     z-index: 999;
     position: fixed;
     display: flex;
     flex-wrap: wrap;
-    top:30%;
+    top:10%;
     left: 10%;
     background-color: #ffffff;
     column-gap: 15px;
@@ -93,7 +96,6 @@ $iconcolor:#A9A9A9;
     .details{
         display: flex;
         flex-direction: column;
-        row-gap: 15px;
         .color-size{
             display: flex;
             justify-content: space-between;
@@ -101,6 +103,19 @@ $iconcolor:#A9A9A9;
                 display: flex;
                 column-gap: 5px;
                 align-items: center;
+                p{
+                    margin: auto;
+                }
+                .square{
+                    height:35px;
+                    width: 35px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    border-radius: 3px;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                } 
                 .icon-wrapper{
                     height:45px;
                     width: 45px;

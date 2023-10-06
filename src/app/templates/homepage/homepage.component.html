@@ -23,9 +23,9 @@
             <div class="navbar">
                 <a><button class="navbtn" [routerLink]="'/'">HOME</button></a>
                 <a><button class="navbtn" (click)="displayDiv()">FASHION</button></a>    
-                <a><button class="navbtn" (click)="gotoallproduct()">JEWELLERY</button></a>
-                <a><button class="navbtn" (click)="gotoallproduct()">ELECTRONICS</button></a>
-                <a><button class="navbtn" (click)="gotoallproduct()">SPORTS</button></a>
+                <a><button class="navbtn" [routerLink]="'/allproduct/Jewellery'">JEWELLERY</button></a>
+                <a><button class="navbtn" [routerLink]="'/allproduct/Electronics'">ELECTRONICS</button></a>
+                <a><button class="navbtn" [routerLink]="'/allproduct/Sports'">SPORTS</button></a>
                 <a><button class="navbtn" (click)="gotoallproduct()">PAGES</button></a>
                 <a><button class="navbtn" (click)="gotoallproduct()">CONTACT</button></a>
                 <a><button class="navbtn" (click)="gotoallproduct()">ADMIN PANEL</button></a>        

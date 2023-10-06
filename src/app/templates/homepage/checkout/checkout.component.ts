@@ -1,13 +1,17 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import data from '../../../../data/data.json'
+
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomValidator } from './custom-validator';
 import { countries, states, month, year } from './country';
-import { distinctUntilChanged } from 'rxjs';
+import { Observable, distinctUntilChanged } from 'rxjs';
 import { MatCalendarCellClassFunction } from '@angular/material/datepicker';
 import { myHolidayDates } from './holidays';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig } from '@angular/material/legacy-dialog';
 import { AlertComponent } from './alert/alert.component';
+import { Store, select } from '@ngrx/store';
+import * as AllActions from '../../../store/product.action';
+import { cartItemsSelector, userSelector } from '../../../store/store.selector';
+import { Product, User } from 'src/shared/interfaces';
 
 @Component({
   selector: 'app-checkout',
@@ -16,12 +20,15 @@ import { AlertComponent } from './alert/alert.component';
 })
 export class CheckoutComponent implements OnInit {
 
+  user:User;
+
   addressForm: FormGroup | any;
   paymentForm: FormGroup | any;
   deliveryForm: FormGroup | any;
  
   cartItemId: number[] = []
   cartitems: any[] = [];
+  cartitems$:Observable<Product[]>
   section = { billing: "none", delivery: "none", payment: "none", review: "none", confirm: "none" }
 
   countries: string[] = []
@@ -43,7 +50,7 @@ export class CheckoutComponent implements OnInit {
   today: Date = new Date(new Date().toISOString().split('T')[0]);
   lastdate: any = new Date(new Date(new Date().getTime() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
 
-  constructor(private fb: FormBuilder,private renderer:Renderer2,private dialog:MatDialog) { }
+  constructor( private fb: FormBuilder,private renderer:Renderer2,private dialog:MatDialog,private store:Store) { }
 
   ngOnInit(): void {
     this.billing = true;
@@ -96,31 +103,14 @@ export class CheckoutComponent implements OnInit {
         }
       }
     })
-
-    this.addressForm.valueChanges.subscribe((data: any) => {
-      // console.log(data)
-    })
-    this.paymentForm.valueChanges.subscribe((data: any) => {
-      // console.log(data)
+    
+    // getting cartitems
+    this.store.pipe(select(cartItemsSelector)).subscribe(item =>{
+      this.cartitems=item
     })
 
-    // getting iems which are gonna purchase
-    const local: any = localStorage.getItem('cartitems');
-    if (local) {
-      this.cartItemId = JSON.parse(local);
-      this.cartitems = data.filter((item) => {
-        for (let itemid of this.cartItemId) {
-          if (itemid === item.id) {
-            return true
-          }
-        }
-        return false
-      })
-
-      for (let item of this.cartitems) {
-        this.grandTotal += item.price;
-      }
-
+    for(let items of this.cartitems){
+      this.grandTotal += items.price
     }
     this.section.billing = "flex"
   }
@@ -142,7 +132,7 @@ export class CheckoutComponent implements OnInit {
 
  
   // styling holidays
-  dateClass: MatCalendarCellClassFunction<Date> = (cellDate, view) => {
+  dateClass: MatCalendarCellClassFunction<Date> = (cellDate: { getTime: () => any; }, view: string) => {
 
     const date = cellDate.getTime();
 
@@ -162,24 +152,14 @@ export class CheckoutComponent implements OnInit {
 
         for(let item of this.myHolidayDates){
           if(item.date.getTime() == newdate.getTime()){
-
-            el.setAttribute('title',item.name)
-            let div = el.querySelectorAll('div')[0];
-  
-            div.classList.add('tooltip')
-      
-            let spans = el.querySelectorAll('span');
-            if(spans.length>0){
-              let span = spans[0];
-              span.innerHTML=item.name;
-            }
-            else{
-              let span = document.createElement('span');
-              span.innerHTML=item.name;
-              span.classList.add('tooltiptext')
-              div.appendChild(span);
-            }
-            
+           
+            let span =  el.querySelectorAll('span')[0];
+            span.classList.add('tooltip')
+            let nxtspan = document.createElement('span');
+            nxtspan.innerHTML=item.name
+            nxtspan.classList.add('tooltiptext')
+            span.appendChild(nxtspan);         
+            break;
             break;
           }
         }
@@ -190,7 +170,7 @@ export class CheckoutComponent implements OnInit {
   // function to adding a description/tooltip to holidays triggered for each month change
   calOpened(event: Event | void) {
     setTimeout(() =>{
-      let buttons = document.querySelectorAll("mat-calendar .mat-icon-button");
+      let buttons = document.querySelectorAll("mat-calendar button");
       buttons.forEach(btn=>
         this.renderer.listen(btn,'click',()=>{
           setTimeout(()=>{
@@ -226,15 +206,37 @@ export class CheckoutComponent implements OnInit {
     this.section.payment = "none"
     this.section.review = "none"
     this.section.confirm = "none";
+
+    const billinginfo = {
+      name:this.addressForm.get('firstname').value,
+      email:this.addressForm.get('email').value,
+      phone:this.addressForm.get('phone').value,
+      country:this.addressForm.get('country').value,
+      city:this.addressForm.get('city').value,
+      state:this.addressForm.get('state').value,
+      zip:this.addressForm.get('zip').value,
+      address:this.addressForm.get('address').value
+    }
+    this.store.dispatch(AllActions.postBilling({billinginfo}));
+    // this.store.subscribe(state =>{
+    //   console.log("Sttae",state)
+    // })
+
   }
   gotopayment() {
     this.payment = true;
-    console.log("here arrived")
     this.section.delivery = "none"
     this.section.billing = "none"
     this.section.payment = "flex"
     this.section.review = "none"
     this.section.confirm = "none";
+
+    const deliveryinfo = {
+      deliverytype:this.deliveryForm.get('deliverymthd').value,
+      deliverydate:this.deliveryForm.get('deliverydate').value
+    }
+    this.store.dispatch(AllActions.postDelivery({deliveryinfo}))
+
   }
   gotoreview() {
     this.review = true
@@ -243,6 +245,12 @@ export class CheckoutComponent implements OnInit {
     this.section.payment = "none"
     this.section.review = "flex"
     this.section.confirm = "none";
+    const cardno = this.paymentForm.get('cardnumber').value;
+    this.store.dispatch(AllActions.postCard({cardno}))
+   
+    this.store.pipe(select(userSelector)).subscribe(data =>{
+      this.user = data
+    });
   }
   gotoconfirm() {
     this.confirm = true;
@@ -259,7 +267,7 @@ export class CheckoutComponent implements OnInit {
     this.addressForm.reset();
     this.paymentForm.reset();
     localStorage.removeItem('cartitems');
-    console.log("cart items deleted")
+    localStorage.removeItem('user');
   }
 
 }

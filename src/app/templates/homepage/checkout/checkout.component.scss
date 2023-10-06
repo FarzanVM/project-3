@@ -4,21 +4,13 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
 ::ng-deep.holiday {
     // background-color: rgb(236, 108, 108);
     // border: dashed;
-    color: black;
+    color: rgb(203, 20, 20);
     border-radius: 100%;
 }
 
 ::ng-deep.holiday :hover {
-    border: 1px solid white;
+    border: 1px solid rgb(192, 18, 18);
 }
-
-//   ::ng-deep mat-form-field{
-//     height:55px !important;
-
-//   }
-//   ::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
-//     background-color: red!important;
-// }
 
 // //input outline color
 :host::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
@@ -26,16 +18,6 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     // opacity: 1!important;
 }
 
-// //mat-input focused color
-// ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-//     color: rgb(20, 118, 18)!important;
-// }
-
-// // mat-input error outline color
-// ::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid.mat-form-field-invalid .mat-form-field-outline-thick{
-//     color: red!important;
-//     opacity: 0.8!important;
-// }
 ::ng-deep .mat-form-field-flex {
     margin-top: 0px !important;
     display: flex !important;
@@ -47,20 +29,17 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
 }
 
 :host::ng-deep .mat-form-field-label {
-    top: 41px;
-    left: 10px;
+    top: 38px;
+    left: 14px;
+}
+:host::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline{
+    color:tomato;
 }
 
 :host::ng-deep .mat-datepicker-toggle {
     position: absolute;
     bottom: 23px;
     right: 0px;
-}
-
-:host::ng-deep.mat-radio-outer-circle {
-    .mat-radio-checked & {
-        border-color: green;
-    }
 }
 
 :host::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
@@ -70,32 +49,14 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
 :host::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
     background-color: green;
 }
-
-:host::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple {
-    // background-color: rgba(green, 0.26);
-    background-color: green;
-}
-:host::ng-deep  .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
-    background-color: rgb(102, 102, 1);
-}
-
+//  for tooltip
 ::ng-deep .tooltip:not(.mat-calendar-body-selected):not(.mat-calendar-body-today) {
     border-color: rgba(0,0,0,.38);
     border-style: dashed;
  }
-//  for tooltip
- ::ng-deep tr>td:first-of-type>.tooltip .tooltiptext {
-     left: 0;
-     margin-left: 0;
- }
- 
- ::ng-deep tr>td:nth-of-type(7)>.tooltip .tooltiptext,
- ::ng-deep tr:first-of-type>td:last-of-type>.tooltip .tooltiptext {
-     right: 0;
-     margin-left: 0;
-     left: auto;
- }
+
 //  #7f7575
+// tooltip tooltip text
  ::ng-deep .tooltip .tooltiptext {
      visibility: hidden;
      width: 120px;
@@ -112,7 +73,7 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
      margin-left: -60px;
      left: 50%;
  }
- 
+//  tooltip arrow down
  ::ng-deep .tooltip:hover::after {
      content: "";
      z-index: 2;
@@ -122,7 +83,6 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
      margin-left: -8px;
      border-width: 8px;
      border-style: solid;
-    //  border-color: black transparent transparent transparent;
     border-color: white transparent transparent transparent;
  }
  ::ng-deep .tooltip:hover .tooltiptext {
@@ -230,9 +190,6 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                     background-color: rgb(215, 215, 215);
                 }
 
-                // fa-icon:hover{
-                //     filter: drop-shadow(2px 2px 2px rgb(201, 200, 198));
-                // }
             }
 
             .billing-address {
@@ -265,7 +222,6 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
 
                             input {
                                 padding: 15px;
-                                // outline: 1px solid rgb(76, 179, 91);
                                 width: 100%;
                                 box-sizing: border-box;
                             }
@@ -279,31 +235,17 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                         min-width: 200px;
                         height: 65px;
                         box-sizing: border-box;
-
-                        // mat-form-field{
-                        //     background-color: grey;
-                        //     outline: 1px solid yellow;
-                        //     border: 3px;
-                        //     box-sizing: border-box;
-                        //     width: 100%;
-                        // }
                         mat-form-field {
                             width: 100%;
                             height: 100%;
                             box-sizing: border-box;
-
                             input {
                                 padding: 15px;
-                                // outline: 1px solid rgb(76, 179, 91);
                                 width: 100%;
                                 box-sizing: border-box;
                             }
 
                             mat-select {
-                                // position: relative;
-                                // outline: 1px solid rgb(76, 179, 91);
-                                // background-color: #fafafa;
-                                // border-radius: 3px;
                                 padding: 13px;
                                 width: 100%;
                                 box-sizing: border-box;
@@ -319,9 +261,6 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                     .row3 {
                         border-radius: 3px;
                         flex: 1 100%;
-                        // display: flex;
-                        // align-items: center;
-                        // flex-direction: column;
                         height: 65px;
                         box-sizing: border-box;
 
@@ -331,17 +270,12 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                             box-sizing: border-box;
 
                             input {
-                                padding: 15px;
-                                // outline: 1px solid rgb(76, 179, 91);
+                                padding: 15px;          
                                 width: 100%;
                                 box-sizing: border-box;
                             }
 
                             mat-select {
-                                // position: relative;
-                                // outline: 1px solid rgb(76, 179, 91);
-                                // background-color: #fafafa;
-                                // border-radius: 3px;
                                 padding: 13px;
                                 width: 100%;
                                 box-sizing: border-box;
@@ -352,23 +286,12 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                     }
 
                     input {
-                        // outline: 1px solid rgb(76, 179, 91);
                         padding: 15px;
                         width: 100%;
                         border: none;
                         border-radius: 3px;
                         box-sizing: border-box;
                     }
-
-                    // input:before{
-                    //     // font-family: "Font Awesome 5 Free";
-                    //     // content:'\f107';
-                    //     // font-size: 100px;
-                    //     // font-weight: bolder;
-                    //     content:"hello";
-                    //     display: inline-block;
-                    //     font-size: large;
-                    // }
                     .danger {
                         outline: 1px solid tomato;
                     }
@@ -425,12 +348,7 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                     display: flex;
                     width: 100%;
                     flex-direction: column;
-                    // row-gap: 20px;
                     box-sizing: border-box;
-
-                    // input{
-                    //     padding: 20px;
-                    // }
                     .mat-radio-button {
                         display: block;
                         margin: 20px;
@@ -440,15 +358,7 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                         width: 200px;
                         height: 100%;
                         box-sizing: border-box;
-
-                        mat-label {
-                            // position: absolute;
-                            top: 7px;
-                            left: 0px;
-                        }
-
                     }
-
                     .date-picker {
                         margin-top: 0px;
                         margin-left: 25px;
@@ -465,12 +375,6 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                         }
                     }
                 }
-
-                input[type=text] {
-                    outline: 1px solid green;
-                    border-radius: 3px;
-                }
-
                 .danger {
                     outline: 1px solid tomato;
                 }
@@ -499,8 +403,6 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                     input {
                         width: 100%;
                         padding: 15px;
-                        // border-radius: 3px;
-                        // outline: 1px solid rgb(76, 179, 91);
                         border: none;
                         box-sizing: border-box;
                     }
@@ -518,19 +420,12 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                             width: 100%;
                             height: 100%;
                             box-sizing: border-box;
-
                             input {
                                 padding: 15px;
-                                // outline: 1px solid rgb(76, 179, 91);
                                 width: 100%;
                                 box-sizing: border-box;
                             }
-
                             mat-select {
-                                // position: relative;
-                                // outline: 1px solid rgb(76, 179, 91);
-                                // background-color: #fafafa;
-                                // border-radius: 3px;
                                 padding: 13px;
                                 width: 100%;
                                 box-sizing: border-box;
@@ -552,16 +447,11 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
 
                             input {
                                 padding: 15px;
-                                // outline: 1px solid rgb(76, 179, 91);
                                 width: 100%;
                                 box-sizing: border-box;
                             }
 
                             mat-select {
-                                // position: relative;
-                                // outline: 1px solid rgb(76, 179, 91);
-                                // background-color: #fafafa;
-                                // border-radius: 3px;
                                 padding: 13px;
                                 width: 100%;
                                 box-sizing: border-box;
@@ -600,15 +490,6 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
                         background-color: grey;
                     }
 
-                    // mat-select{
-                    //     // position: relative;
-                    //     outline: 1px solid rgb(76, 179, 91);
-                    //     background-color: #fafafa;
-                    //     border-radius: 3px;
-                    //     padding: 13px;
-                    //     width: 100%;
-                    //     box-sizing: border-box;
-                    // }
                     .danger {
                         outline: 1px solid tomato;
                     }

@@ -17,7 +17,7 @@ const routes: Routes = [
         component:CollectionsComponent
       },
       {
-        path:'allproduct',
+        path:'allproduct/:type',
         component:AllproductsComponent
       },
       {
