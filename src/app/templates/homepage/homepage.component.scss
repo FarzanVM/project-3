@@ -15,13 +15,13 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     display:flex;
     padding:5px;
     justify-content: space-around;
-    /* border-bottom:1px solid #F4EEEE; */
-    /* border-bottom-width: thin; */
     position: relative;
     z-index: 1;
-}
-.topheader {
     font-size: small;
+    .options{
+        display: flex;
+        column-gap: 10px;
+    }
 }
 .topheader:before {
     content: "";
@@ -30,16 +30,23 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     width: 90%;
     border-bottom:1px solid #F4EEEE;
   }
-.options{
-    display: flex;
-    column-gap: 10px;
-}
+
+  @media(max-width:800px){
+    .topheader{
+        display: none;
+    }
+  }
+
 .bottomheader{
     display: flex;
     align-items: center;
     height: 90px;
     justify-content: space-around;
     padding: 10px; 
+    box-sizing: border-box;
+    fa-icon{
+        font-size: x-large;
+    }
     .searchbox{
         display: flex;   
         .categoriesbtn{
@@ -78,30 +85,45 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     
   
 }
-
-/* for navigation bar */
-.navbar{
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    background-color: white;
+@media(max-width:500px){
+    .bottomheader{
+        font-size: 10px;
+        height:auto;
+        padding:0px;
+        h1{
+            margin-top: 15px;
+        }
+        .cartbtn{
+            display: none;
+        }
+    }
     
 }
-.navbtn{
-    cursor: pointer;
-    color: #40513B;
-    font-weight: bold;
-    border: none;
-    padding: 15px;
-    background-color: white;
+@media(min-width:400px) and (max-width:990px){
+    .bottomheader .searchbox .searchbar{
+        width: 100px;
+    }
+    .menubtn{
+        cursor: pointer;
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        color: #5992d6;
+        display: block;
+    }
+    .navbar{
+        display: none;
+    }
+    .navopen{
+        display: block;
+    }
 }
-.navbtn:hover{
-    background-color:#F8F8F8 ;
+@media(min-width:1000px) {
+    .menubtn{
+       display: none;
+    }
 }
+
 .fashion-div{
     position: absolute;
     column-gap: 15px;
@@ -141,73 +163,76 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     width: 100%;
     justify-content: center;
     background-color: #8EAC50;
+    h2{
+        color: whitesmoke;
+    }
+    .contact-info .heading1{
+        color: white;
+        font-weight: bolder;
+    }
+    p{
+        color: #F4EEEE;
+        font-weight: lighter;
+    }
+    .subscription{
+        position: relative;
+        display: flex;
+        flex-grow: 1;
+        flex-wrap: wrap;
+        row-gap: 20px;
+        padding: 25px;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .subscription::before{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 90%;
+        border-bottom: 1px solid rgb(202, 200, 200);
+    }
+    .email-address{
+        display: flex;
+        button{
+            border: none;
+        }
+    }
+    input{
+        width: 400px;
+        padding: 10px;
+        border: none;
+    }
+    .contact-info{
+        display: flex;
+        position: relative;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 10px;
+        justify-content: space-evenly;
+    }
+    .contact-info:before{
+        content: "";
+        position: absolute;
+        width:90%;
+        bottom: 0;
+        border: 1px solid rgb(202, 200, 200);
+    }
+    .googlemap{
+        width:600px;
+        height: 170px;
+    }
+    .googlemap iframe{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .copyright{
+        display: flex;
+        align-items: center;
+        padding:0px 45px 0px 45px;
+        justify-content: space-between;
+    }
 }
-.footer h2{
-    color: whitesmoke;
-}
-.contact-info .heading1{
-    color: white;
-    font-weight: bolder;
-}
-.footer p{
-    color: #F4EEEE;
-    font-weight: lighter;
-}
-.subscription{
-    position: relative;
-    display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    row-gap: 20px;
-    padding: 25px;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.subscription::before{
-    content: "";
-    position: absolute;
-    bottom: 0;
-    width: 90%;
-    border-bottom: 1px solid rgb(202, 200, 200);
-}
-.email-address{
-    display: flex;
-}
-.email-address button{
-    border: none;
-}
-.footer input{
-    width: 400px;
-    padding: 10px;
-    border: none;
-}
-.contact-info{
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    padding: 10px;
-    justify-content: space-evenly;
-}
-.contact-info:before{
-    content: "";
-    position: absolute;
-    width:90%;
-    bottom: 0;
-    border: 1px solid rgb(202, 200, 200);
-}
-.googlemap{
-    width:600px;
-    height: 170px;
-}
-.googlemap iframe{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-.copyright{
-    display: flex;
-    align-items: center;
-    padding:0px 45px 0px 45px;
-    justify-content: space-between;
-}
+
+
+

@@ -1,113 +1,185 @@
 <html>
-    <body>
-        <div class="header">
-            <div class="topheader">
-                <p>Hotline: (+100) 123 456 7890</p>
-                <p>Welcome to our market!</p>
-                <div class="options">
-                    <p>USD</p>
-                    <p>ENG</p>
-                    <p>COMPARE</p>
-                    <p>WISHLIST</p>
-                    <p>ACCOUNT</p>
-                </div>
+
+<body>
+    <div class="header">
+        <div class="topheader">
+            <p>Hotline: (+100) 123 456 7890</p>
+            <p>Welcome to our market!</p>
+            <div class="options">
+                <p>USD</p>
+                <p>ENG</p>
+                <p>COMPARE</p>
+                <p>WISHLIST</p>
+                <p>ACCOUNT</p>
             </div>
-            <div class="bottomheader">
-                <h1>EMPORIUM</h1>
-                <div class="searchbox">
-                    <button class="categoriesbtn">All categories</button>
-                    <input class="searchbar" type="text" placeholder="Type to search">
-                </div>
-                <a><button class="cartbtn" (click)="gotocart()"><fa-icon icon="cart-plus"></fa-icon><span *ngIf="cartlength">{{cartlength}}</span>Shopping Cart</button></a>
+        </div>
+        <div class="bottomheader">
+            <fa-icon icon="bars" class="menubtn" (click)="openNav()"></fa-icon>
+            <h1>EMPORIUM</h1>
+            <div class="searchbox">
+                <button class="categoriesbtn">All categories</button>
+                <input class="searchbar" type="text" placeholder="Type to search">
             </div>
-            <div class="navbar">
-                <a><button class="navbtn" [routerLink]="'/'">HOME</button></a>
+            <a><button class="cartbtn" (click)="gotocart()"><fa-icon icon="cart-plus"></fa-icon><span
+                        *ngIf="cartlength">{{cartlength}}</span>Shopping Cart</button></a>
+        </div>
+        <!-- class="navbar" [ngClass]="{'navopen':navOpen}" -->
+        <app-categorynavigation [navbarOpen]="navOpen" ></app-categorynavigation>
+        <!-- "{'active':currentIndex==i || currentIndex2==-1}" -->
+        <!-- <div [ngStyle]="!navOpen && {'display':'flex'}" class="navbar"> -->
+            <!-- <ng-container *ngFor="let children of data;let i= index">
+                <button class="atobtn" (click)="openOptions(i)" [ngClass]="{'active':currentIndex==i}">{{children.title}}<fa-icon
+                     icon="chevron-down" [ngClass]="{'rotate':currentIndex==i && open ,'closearrow':currentIndex2>=0}"></fa-icon></button>
+                <div *ngIf="open" class="mobileview" >
+                    <div class="optionsContainer" *ngIf="currentIndex==i" [ngClass]="{'pushup':currentIndex2>=0}">
+                        <ng-container *ngFor="let child of childrens;let i= index">
+                            <button (click)="opennext(i,child.title)" class="atobtn"
+                                [ngClass]="{'currentbtn':selectedId==child.title && currentIndex3==-1}">{{child.title}}<fa-icon
+                                    
+                                    icon="chevron-right"></fa-icon></button>
+                            <div *ngIf="childsections[1] && currentIndex2==i" class="optionsContainers">
+                                <ng-container *ngFor="let child of nxtchildren;let i=index">
+                                <button (click)="opennext1(i,child.title)" class="atobtn"
+                                    [ngClass]="{'currentbtn':selectedId2==child.title && currentIndex4==-1}">{{child.title}}<fa-icon
+                                        *ngIf="!childsections[2] || selectedId2==child.title"
+                                        icon="chevron-right"></fa-icon></button>
+                                        <div *ngIf="childsections[2] && currentIndex3==i" class="optionsContainer">
+                                            <ng-container  *ngFor="let child of nxtchildren2;let i=index">
+                                                <button (click)="(child.children.length>0) && opennext2(i,child.title)" class="atobtn"
+                                                    [ngClass]="{'currentbtn':selectedId3==child.title}">{{child.title}}<fa-icon
+                                                        *ngIf="(!childsections[3] || selectedId3==child.title) && (child.children.length>0)"
+                                                        icon="chevron-right"></fa-icon></button>
+                                                        <div *ngIf="childsections[3] && currentIndex4==i" class="optionsContainer">
+                                                            <button class="atobtn" *ngFor="let child of nxtchildren3;let i=index"  [ngClass]="{'currentbtn':selectedId3==child.title}">{{child.title}}</button>
+                                                        </div>
+                                            </ng-container>
+                                            
+                                        </div>
+                                </ng-container>
+                            </div>
+                        </ng-container>
+
+                    </div>
+                </div>
+            </ng-container> -->
+            <!-- <div *ngIf="open"  class="optionsWrapper">
+                    <div class="optionsContainer">
+                        <button (click)="opennext(i,child.uid)" *ngFor="let child of childrens;let i= index"
+                            class="atobtn" [ngClass]="{'active':selectedId==child.uid}">{{child.title}}<fa-icon
+                                *ngIf="!childsections[1] || selectedId==child.uid"
+                                icon="chevron-right"></fa-icon></button>
+                    </div>
+                    <div *ngIf="childsections[1]" class="optionsContainer">
+                        <button (click)="opennext1(i,child.uid)" class="atobtn"
+                            *ngFor="let child of nxtchildren;let i=index"
+                            [ngClass]="{'active':selectedId2==child.uid}">{{child.title}}<fa-icon
+                                *ngIf="!childsections[2] || selectedId2==child.uid"
+                                icon="chevron-right"></fa-icon></button>
+                    </div>
+                    <div *ngIf="childsections[2]" class="optionsContainer">
+                        <button (click)="(child.children.length>0) && opennext2(i,child.uid)" class="atobtn"
+                            *ngFor="let child of nxtchildren2;let i=index"
+                            [ngClass]="{'active':selectedId3==child.uid}">{{child.title}}<fa-icon
+                                *ngIf="(!childsections[3] || selectedId3==child.uid) && (child.children.length>0)"
+                                icon="chevron-right"></fa-icon></button>
+                    </div>
+                    <div *ngIf="childsections[3]" class="optionsContainer">
+                        <button class="atobtn" *ngFor="let child of nxtchildren3;let i=index">{{child.title}}</button>
+                    </div>
+                </div> -->
+            <!-- </ng-container> -->
+            <!-- <a><button class="navbtn" (click)="displayDiv()">FASHION</button></a>   -->
+            <!-- <a><button class="navbtn" [routerLink]="'/'">HOME</button></a>
                 <a><button class="navbtn" (click)="displayDiv()">FASHION</button></a>    
                 <a><button class="navbtn" [routerLink]="'/allproduct/Jewellery'">JEWELLERY</button></a>
                 <a><button class="navbtn" [routerLink]="'/allproduct/Electronics'">ELECTRONICS</button></a>
                 <a><button class="navbtn" [routerLink]="'/allproduct/Sports'">SPORTS</button></a>
                 <a><button class="navbtn" (click)="gotoallproduct()">PAGES</button></a>
                 <a><button class="navbtn" (click)="gotoallproduct()">CONTACT</button></a>
-                <a><button class="navbtn" (click)="gotoallproduct()">ADMIN PANEL</button></a>        
-            </div>
+                <a><button class="navbtn" (click)="gotoallproduct()">ADMIN PANEL</button></a>         -->
+        <!-- </div> -->
+    </div>
+    <div [ngStyle]="displaydiv?{'display':'flex'}:{'display':'none'}" class="fashion-div">
+        <div class="column">
+            <p>WOMEN</p>
+            <p>jackets</p>
+            <p>Tops & Blouses</p>
+            <p>Shoes & Boots</p>
+            <p>knitwear</p>
         </div>
-        <div [ngStyle]="displaydiv?{'display':'flex'}:{'display':'none'}" class="fashion-div">
-            <div class="column">
-                <p>WOMEN</p>
-                <p>jackets</p>
-                <p>Tops & Blouses</p>
-                <p>Shoes & Boots</p>
-                <p>knitwear</p>
-            </div>
-            <div class="column">
-                <p>MEN</p>
-                <p>T-shirts & Polo</p>
-                <p>Shoes & Boots</p>
-                <p>Jeans</p>
-                <p>Coats</p>
-            </div>
-            <div class="column">
-                <p>KIDS</p>
-                <p>Tops</p>
-                <p>Pants & Shorts</p>
-                <p>Dresses</p>
-                <p>Skirts</p>
-                <p>Set & Body</p>
-            </div>
-            <div class="column">
-                <p>ACCESSORIES</p>
-                <p>Watches</p>
-                <p>Bags & Wallet</p>
-                <p>Sunglasses</p>
-                <p>Belt & Hats</p>
-            </div>
-            <div class="column">
-                <img src="assets/images/background/shirts.jpg">
-            </div>
-
+        <div class="column">
+            <p>MEN</p>
+            <p>T-shirts & Polo</p>
+            <p>Shoes & Boots</p>
+            <p>Jeans</p>
+            <p>Coats</p>
         </div>
-        <div>
-            <router-outlet></router-outlet>
+        <div class="column">
+            <p>KIDS</p>
+            <p>Tops</p>
+            <p>Pants & Shorts</p>
+            <p>Dresses</p>
+            <p>Skirts</p>
+            <p>Set & Body</p>
         </div>
-        <div class="footer">
-            <div class="subscription">
-                <div class="subscribe-header">
-                    <h2>Subscribe our Newspaper</h2>
-                    <p>Stay up to date with our latest new and products</p>
-                </div>
-                 <div class="email-address"> 
-                    <input type="text" placeholder="Your email address">
-                    <button>Subscribe</button>
-                </div> 
-            </div>
-            <div class="contact-info">
-                <div class="links">
-                    <p class="heading1">USEFUL LINKS</p>
-                    <p>My Account</p>
-                    <p>Contact</p>
-                    <p>Compare</p>
-                    <p>Wishlist</p>
-                    <p>Checkout</p>
-                    <p>FAQ</p>
-                </div>
-                <div class="contact">
-                    <p class="heading1">CONTACT INFORMATION</p>
-                    <p>2903 Avenue Z, Brooklyn, NY</p>
-                    <p>(212) 457-2308</p>
-                    <p>contact@emporium.com</p>
-                    <p>Mon - Sun / 9:00AM - 8:00PM</p>
-                    <p>Get directions</p>
-                    <p>Routes to us</p>
-                </div>
-                <div class="googlemap">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.83988771852!2d-0.2664061945763933!3d51.52873980474533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sin!4v1694337309932!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>Copyright © 2023 All Rights Reserved</p>
-                <p>Designed & Developed by Farzan</p>
-            </div>
+        <div class="column">
+            <p>ACCESSORIES</p>
+            <p>Watches</p>
+            <p>Bags & Wallet</p>
+            <p>Sunglasses</p>
+            <p>Belt & Hats</p>
+        </div>
+        <div class="column">
+            <img src="assets/images/background/shirts.jpg">
         </div>
 
-    </body>
+    </div>
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+    <div class="footer">
+        <div class="subscription">
+            <div class="subscribe-header">
+                <h2>Subscribe our Newspaper</h2>
+                <p>Stay up to date with our latest new and products</p>
+            </div>
+            <div class="email-address">
+                <input type="text" placeholder="Your email address">
+                <button>Subscribe</button>
+            </div>
+        </div>
+        <div class="contact-info">
+            <div class="links">
+                <p class="heading1">USEFUL LINKS</p>
+                <p>My Account</p>
+                <p>Contact</p>
+                <p>Compare</p>
+                <p>Wishlist</p>
+                <p>Checkout</p>
+                <p>FAQ</p>
+            </div>
+            <div class="contact">
+                <p class="heading1">CONTACT INFORMATION</p>
+                <p>2903 Avenue Z, Brooklyn, NY</p>
+                <p>(212) 457-2308</p>
+                <p>contact@emporium.com</p>
+                <p>Mon - Sun / 9:00AM - 8:00PM</p>
+                <p>Get directions</p>
+                <p>Routes to us</p>
+            </div>
+            <div class="googlemap">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158857.83988771852!2d-0.2664061945763933!3d51.52873980474533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2sLondon%2C%20UK!5e0!3m2!1sen!2sin!4v1694337309932!5m2!1sen!2sin"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2023 All Rights Reserved</p>
+            <p>Designed & Developed by Farzan</p>
+        </div>
+    </div>
+
+</body>
+
 </html>

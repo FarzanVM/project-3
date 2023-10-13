@@ -1,0 +1,189 @@
+.rotate{
+    transform: rotateZ(180deg);
+    // transition: all 0.5s ease;
+}
+fa-icon{
+    transition: all 0.5s ease;
+}
+.navbar{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    font-family: "Lato";
+    padding-left: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    background-color: white;
+    .atobtn{
+
+        display: flex;
+        justify-content: space-between;
+        column-gap: 10px;
+        align-items: center;
+        cursor: pointer;
+        color: #5992d6;
+        font-weight: 700;
+        font-family: "Lato";
+        border: none;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 15px;
+        background-color: white;
+    }   
+    .atobtn:hover{
+        color:#395D74;
+    }
+    .optionsWrapper{
+        position: absolute;
+        display: flex;
+        column-gap: 0px;
+        box-sizing: border-box;
+        top:50px;
+        left: 41px;
+        width: 93%;
+        padding-left: 10px;
+        padding-top: 5px;
+        z-index: 20;
+        overflow-x: hidden;
+        color: #5992d6;
+        background-color: #fff;
+        box-shadow: 0 14px 16px #00000040;
+        height: 53vh;
+        box-sizing: border-box;
+    
+        .optionsContainer{
+            display: flex;
+            flex-shrink: 0;
+            flex-direction: column;
+            width: 302.8px;
+            height: 100%;
+            color: #5992d6;
+            background-color: #fff;
+            overflow-x: hidden;
+            padding: 0px;
+            border-right: 1px solid #EDEDEF;
+            box-sizing: border-box;
+           
+        }
+     
+        ::-webkit-scrollbar {
+            width: 5px;
+            background-color: #EDEDEF;
+          }
+          
+          /* Track */
+          .optionsContainer ::-webkit-scrollbar-track {
+            background: #EDEDEF;
+            border-radius: 10px;
+          }
+           
+          /* Handle */
+          ::-webkit-scrollbar-thumb {
+            background:  #5992d6; 
+            border-radius: 3px;
+          }
+    
+        .atobtn{
+            justify-content: space-between;
+            width: 100%;
+            background-color: #fff;
+            font-size: 13px;
+            font-weight: 400;
+            padding: 5px;
+            border-right:1px solid #EDEDEF;
+            height: 26px;
+            box-sizing: border-box;
+            border-bottom: 1px solid #EDEDEF;
+            fa-icon{
+                font-size: medium;
+            }
+        }       
+        .atobtn:hover{
+            color:#395D74
+        }
+    }
+}
+.navbtn{
+    cursor: pointer;
+    color: #40513B;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    background-color: white;
+}
+.navbtn:hover{
+    background-color:#F8F8F8 ;
+}
+@media(min-width:400px) and (max-width:990px){
+    .menubtn{
+        background-color: white;
+        padding: 10px;
+        border-radius: 5px;
+        color: #5992d6;
+        display: block;
+    }
+    .navbar{
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        .atobtn{
+            width: 100%;
+            border-bottom: 1px solid #EDEDEF;
+        }
+        .active{
+            color:#395D74;
+        }
+        .closearrow{
+            display: none;
+         }
+        .mobileview{
+            width: 100%;
+            .pushup{
+                margin: -45px 0 0 0;
+             }
+            .optionsContainer{
+                width: 100%;
+              
+                .atobtn{
+                    border-bottom: 1px solid #EDEDEF;
+                }
+                
+                .currentbtn{
+                    color:#395D74;
+                    padding: 20px;
+                    flex-direction: row-reverse;
+                    justify-content: flex-end;
+                    fa-icon{
+                            transform: rotate(180deg);
+                    }
+                }
+                .active{
+                    color:#395D74;
+                    // color: red;
+                }
+        }
+           
+        }
+        .optionsWrapper{
+            display: none; 
+        }
+    }
+    
+}
+@media(min-width:990px){
+    .menubtn{
+        display: none;
+    }
+    .navbar{
+        flex-direction: row;
+        
+        .active{
+            color:#395D74 ;
+        }
+    }
+    .mobileview{
+        display: none;
+    }
+    
+}

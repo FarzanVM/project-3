@@ -34,6 +34,8 @@ import { StoreModule } from '@ngrx/store';
 import { productReducer } from './store/product.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './store/product.effect';
+import { OutsideClickDirective } from './templates/homepage/outside-click.directive';
+import { CategorynavigationComponent } from './templates/homepage/categorynavigation/categorynavigation.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { ProductEffects } from './store/product.effect';
     CheckoutComponent,
     ItemcardComponent,
     FormdirectiveDirective,
-    AlertComponent
+    AlertComponent,
+    OutsideClickDirective,
+    CategorynavigationComponent
   ],
   imports: [
     BrowserModule,
