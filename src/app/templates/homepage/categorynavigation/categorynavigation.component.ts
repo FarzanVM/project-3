@@ -1,11 +1,13 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import data from '../../../../data/browseStructureTree.json'
+import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-categorynavigation',
   templateUrl: './categorynavigation.component.html',
   styleUrls: ['./categorynavigation.component.scss']
 })
 export class CategorynavigationComponent implements OnInit {
+  constructor(private productService: ProductService){}
 
   navOpen: boolean = false;
 
@@ -69,6 +71,41 @@ export class CategorynavigationComponent implements OnInit {
     }
   }
   ngOnInit(): void {
-    this.childrenArray={0:this.data}
+    // this.childrenArray={0:this.data};
+    this.productService.getRootElements().subscribe(
+      response => {
+        this.childrenArray={0:response['navigationNode'].children}
+      }
+    )
+    this.productService.getfirstChild().subscribe(
+      response=>{    
+        for(let item of this.childrenArray[0]){
+          if(item.uid==='ELEC.NAV.0'){
+            item.children=response
+          }
+        }
+        // console.log(this.childrenArray[0][1].children)
+      }
+    )
+    this.productService.getsecondChild().subscribe(
+      response=>{
+        // console.log("response",response)
+        this.AssignChildren(this.childrenArray[0][1],'ELEC.NAV.0.4',response)
+        console.log(this.childrenArray[0])
+      }
+    )
+  }
+
+  AssignChildren(node,id,children){
+    // console.log("node",node)
+    if(node.uid==id){
+      node.children=children
+      console.log("found")
+      return
+    }
+    for(let item in node.children){
+      this.AssignChildren(item,id,children)
+    }
+
   }
 }

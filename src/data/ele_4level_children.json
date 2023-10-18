@@ -1,0 +1,40 @@
+[
+    {
+        "entries": [
+            {
+                "itemId": "128",
+                "itemSuperType": "AbstractCMSComponent",
+                "itemType": "CMSLinkComponent",
+                "name": "Anti-tarnish#Gold#Connectors, contacts, bus bars and wires#Electronics Link NavNode Entry"
+            }
+        ],
+        "hasChildren": false,
+        "itemType": "CMSNavigationNode",
+        "name": "Anti-tarnish",
+        "parentUid": "ELEC.NAV.0.4.1.1",
+        "position": 0,
+        "title": "View All",
+        "uid": "ELEC.NAV.0.4.1.1.0",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMS4xLjAiLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9",
+        "url": "/c/ELEC.3.4.1"
+    },
+    {
+        "entries": [
+            {
+                "itemId": "208",
+                "itemSuperType": "AbstractCMSComponent",
+                "itemType": "CMSLinkComponent",
+                "name": "Betatec NavNode Entry"
+            }
+        ],
+        "hasChildren": false,
+        "itemType": "CMSNavigationNode",
+        "name": "Betatec",
+        "parentUid": "ELEC.NAV.0.4.1.1",
+        "position": 1,
+        "title": "Betatec",
+        "uid": "ELEC.NAV.0.4.1.1.1",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMS4xLjEiLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9",
+        "url": "/c/ELEC.3.4.1.0"
+    }
+]

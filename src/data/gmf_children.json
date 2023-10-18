@@ -1,0 +1,112 @@
+[
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Cleaners, strippers, pretreatment",
+        "parentUid": "GMF.NAV.0",
+        "position": 0,
+        "title": "Cleaners, strippers, pretreatment",
+        "uid": "GMF.NAV.0.0",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuMCIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Decorative coatings",
+        "parentUid": "GMF.NAV.0",
+        "position": 1,
+        "title": "Decorative coatings",
+        "uid": "GMF.NAV.0.1",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuMSIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Plating on plastics",
+        "parentUid": "GMF.NAV.0",
+        "position": 2,
+        "title": "Plating on plastics",
+        "uid": "GMF.NAV.0.2",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuMiIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Hard chrome coatings",
+        "parentUid": "GMF.NAV.0",
+        "position": 3,
+        "title": "Hard chrome coatings",
+        "uid": "GMF.NAV.0.3",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuMyIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Electroless nickel coatings",
+        "parentUid": "GMF.NAV.0",
+        "position": 4,
+        "title": "Electroless nickel coatings",
+        "uid": "GMF.NAV.0.4",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuNCIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Zinc and zinc alloys",
+        "parentUid": "GMF.NAV.0",
+        "position": 5,
+        "title": "Zinc and zinc alloys",
+        "uid": "GMF.NAV.0.5",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuNSIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Zinc flake coatings",
+        "parentUid": "GMF.NAV.0",
+        "position": 6,
+        "title": "Zinc flake coatings",
+        "uid": "GMF.NAV.0.6",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuNiIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Paint support technology",
+        "parentUid": "GMF.NAV.0",
+        "position": 7,
+        "title": "Paint support technology",
+        "uid": "GMF.NAV.0.7",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuNyIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Photovoltaic",
+        "parentUid": "GMF.NAV.0",
+        "position": 8,
+        "title": "Photovoltaic",
+        "uid": "GMF.NAV.0.8",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuOCIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Industrial Chemicals (Commodities)",
+        "parentUid": "GMF.NAV.0",
+        "position": 9,
+        "title": "Industrial Chemicals (Commodities)",
+        "uid": "GMF.NAV.0.9",
+        "uuid": "eyJpdGVtSWQiOiJHTUYuTkFWLjAuOSIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    }
+]

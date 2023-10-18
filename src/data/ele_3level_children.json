@@ -1,0 +1,46 @@
+[
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Gold plating",
+        "parentUid": "ELEC.NAV.0.4.1",
+        "position": 0,
+        "title": "Gold plating",
+        "uid": "ELEC.NAV.0.4.1.0",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMS4wIiwiY2F0YWxvZ0lkIjoiYXRvdGVjaEdsb2JhbENvbnRlbnRDYXRhbG9nIiwiY2F0YWxvZ1ZlcnNpb24iOiJPbmxpbmUifQ=="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Anti-tarnish",
+        "parentUid": "ELEC.NAV.0.4.1",
+        "position": 1,
+        "title": "Anti-tarnish",
+        "uid": "ELEC.NAV.0.4.1.1",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMS4xIiwiY2F0YWxvZ0lkIjoiYXRvdGVjaEdsb2JhbENvbnRlbnRDYXRhbG9nIiwiY2F0YWxvZ1ZlcnNpb24iOiJPbmxpbmUifQ=="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Immersion gold",
+        "parentUid": "ELEC.NAV.0.4.1",
+        "position": 2,
+        "title": "Immersion gold",
+        "uid": "ELEC.NAV.0.4.1.2",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMS4yIiwiY2F0YWxvZ0lkIjoiYXRvdGVjaEdsb2JhbENvbnRlbnRDYXRhbG9nIiwiY2F0YWxvZ1ZlcnNpb24iOiJPbmxpbmUifQ=="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Specialties",
+        "parentUid": "ELEC.NAV.0.4.1",
+        "position": 3,
+        "title": "Specialties",
+        "uid": "ELEC.NAV.0.4.1.3",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMS4zIiwiY2F0YWxvZ0lkIjoiYXRvdGVjaEdsb2JhbENvbnRlbnRDYXRhbG9nIiwiY2F0YWxvZ1ZlcnNpb24iOiJPbmxpbmUifQ=="
+    }
+]

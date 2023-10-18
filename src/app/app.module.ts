@@ -77,7 +77,7 @@ import { CategorynavigationComponent } from './templates/homepage/categorynaviga
 })
 export class AppModule {
   constructor(library:FaIconLibrary){
-    // library.addIconPacks(faGift,faHome,faHeart,faCartPlus,faEye,faCompress,faTrash,faCheckCircle)
     library.addIconPacks(fas,far)
   }
  }
+ // library.addIconPacks(faGift,faHome,faHeart,faCartPlus,faEye,faCompress,faTrash,faCheckCircle)

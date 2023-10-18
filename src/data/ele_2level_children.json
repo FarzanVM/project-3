@@ -1,0 +1,79 @@
+[
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Silver",
+        "parentUid": "ELEC.NAV.0.4",
+        "position": 0,
+        "title": "Silver",
+        "uid": "ELEC.NAV.0.4.0",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMCIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Gold",
+        "parentUid": "ELEC.NAV.0.4",
+        "position": 1,
+        "title": "Gold",
+        "uid": "ELEC.NAV.0.4.1",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMSIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Nickel",
+        "parentUid": "ELEC.NAV.0.4",
+        "position": 2,
+        "title": "Nickel",
+        "uid": "ELEC.NAV.0.4.2",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMiIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Copper",
+        "parentUid": "ELEC.NAV.0.4",
+        "position": 3,
+        "title": "Copper",
+        "uid": "ELEC.NAV.0.4.3",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuMyIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Platinum metals",
+        "parentUid": "ELEC.NAV.0.4",
+        "position": 4,
+        "title": "Platinum metals",
+        "uid": "ELEC.NAV.0.4.4",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuNCIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Tin",
+        "parentUid": "ELEC.NAV.0.4",
+        "position": 5,
+        "title": "Tin",
+        "uid": "ELEC.NAV.0.4.5",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuNSIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Surface treatment",
+        "parentUid": "ELEC.NAV.0.4",
+        "position": 6,
+        "title": "Surface treatment",
+        "uid": "ELEC.NAV.0.4.6",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQuNiIsImNhdGFsb2dJZCI6ImF0b3RlY2hHbG9iYWxDb250ZW50Q2F0YWxvZyIsImNhdGFsb2dWZXJzaW9uIjoiT25saW5lIn0="
+    }
+]

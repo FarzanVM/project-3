@@ -1,0 +1,90 @@
+[
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Selective finishing",
+        "parentUid": "ELEC.NAV.0",
+        "position": 0,
+        "title": "Selective finishing",
+        "uid": "ELEC.NAV.0.0",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjAiLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9"
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Wafer Plating",
+        "parentUid": "ELEC.NAV.0",
+        "position": 1,
+        "title": "Wafer Plating",
+        "uid": "ELEC.NAV.0.1",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjEiLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9"
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Surface treatment technology",
+        "parentUid": "ELEC.NAV.0",
+        "position": 2,
+        "title": "Surface treatment technology",
+        "uid": "ELEC.NAV.0.2",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjIiLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9"
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Desmear & metallization",
+        "parentUid": "ELEC.NAV.0",
+        "position": 3,
+        "title": "Desmear & metallization",
+        "uid": "ELEC.NAV.0.3",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjMiLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9"
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Connectors, contacts, bus bars and wires",
+        "parentUid": "ELEC.NAV.0",
+        "position": 4,
+        "title": "Connectors, contacts, bus bars and wires",
+        "uid": "ELEC.NAV.0.4",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjQiLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9"
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Lead frame/IC/LED packages",
+        "parentUid": "ELEC.NAV.0",
+        "position": 5,
+        "title": "Lead frame/IC/LED packages",
+        "uid": "ELEC.NAV.0.5",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjUiLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9"
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "3-D MID",
+        "parentUid": "ELEC.NAV.0",
+        "position": 6,
+        "title": "3-D MID",
+        "uid": "ELEC.NAV.0.6",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjYiLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9"
+    },
+    {
+        "entries": [],
+        "hasChildren": true,
+        "itemType": "CMSNavigationNode",
+        "name": "Electrolytic Plating",
+        "parentUid": "ELEC.NAV.0",
+        "position": 7,
+        "title": "Electrolytic Plating",
+        "uid": "ELEC.NAV.0.7",
+        "uuid": "eyJpdGVtSWQiOiJFTEVDLk5BVi4wLjciLCJjYXRhbG9nSWQiOiJhdG90ZWNoR2xvYmFsQ29udGVudENhdGFsb2ciLCJjYXRhbG9nVmVyc2lvbiI6Ik9ubGluZSJ9"
+    }
+]

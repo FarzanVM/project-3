@@ -1,4 +1,5 @@
 <div [ngStyle]="navOpen && {'display':'flex'}" class="navbar" appOutsideClick (OutsideClick)="clickedOutside($event)">
+    <!-- {{childrenArray | json}} -->
     <ng-container *ngFor="let children of childrenArray[0];let i= index">
         <button class="atobtn" (click)="openOptions(i,children.uid)"
             [ngClass]="{'active':selectedIds[0]==children.uid}">{{children.title}}<fa-icon icon="chevron-down"
@@ -7,7 +8,7 @@
         <div  class="mobileview">
             <div class="optionsContainer" *ngIf="selectedIds[0]==children.uid" [ngClass]="{'pushup':selectedIds[1]}">
 
-                <ng-container *ngFor="let child of childrenArray[1];let i= index">
+                <ng-container *ngFor="let child of childrenArray[1],let i= index">
                     <button (click)="onOpenChildren(1,i)" class="atobtn"
                         [ngClass]="{'currentbtn':selectedIds[1]==child.uid && !selectedIds[2]}">{{child.title}}<fa-icon
                             icon="chevron-right"></fa-icon></button>
@@ -41,12 +42,12 @@
     </ng-container>
     <div *ngIf="selectedIds[0]"  class="optionsWrapper">
         <div class="optionsContainer">
-            <button (click)="onOpenChildren(1,i)" *ngFor="let child of childrenArray[1];let i= index" class="atobtn"
+            <button (click)="onOpenChildren(1,i)" *ngFor="let child of childrenArray[0][1].children;let i= index" class="atobtn"
                 [ngClass]="{'active':selectedIds[1]==child.uid}">{{child.title}}<fa-icon
                     *ngIf="!selectedIds[1] || selectedIds[1]==child.uid" icon="chevron-right"></fa-icon></button>
         </div>
         <div *ngIf="selectedIds[1]" class="optionsContainer">
-            <button (click)="onOpenChildren(2,i)" class="atobtn" *ngFor="let child of childrenArray[2];let i=index"
+            <button (click)="onOpenChildren(2,i)" class="atobtn" *ngFor="let child of childrenArray[1];let i=index"
                 [ngClass]="{'active':selectedIds[2]==child.uid}">{{child.title}}<fa-icon
                     *ngIf="!selectedIds[2] || selectedIds[2]==child.uid" icon="chevron-right"></fa-icon></button>
         </div>
