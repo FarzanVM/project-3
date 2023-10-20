@@ -23,4 +23,10 @@ export class ProductService {
   getsecondChild(){
     return this.http.get('http://localhost:4200/data/ele_2level_children.json')
   }
+  getthirdChild(){
+    return this.http.get('http://localhost:4200/data/ele_3level_children.json')
+  }
+  getfourthChild(){
+    return this.http.get('http://localhost:4200/data/ele_4level_children.json')
+  }
 }
