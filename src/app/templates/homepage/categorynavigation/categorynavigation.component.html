@@ -5,31 +5,30 @@
             [ngClass]="{'active':selectedIds[0]==children.uid}">{{children.title}}<fa-icon icon="chevron-down"
                 [ngClass]="{'rotate':selectedIds[0]==children.uid && selectedIds[0] ,'closearrow':selectedIds[1]}"></fa-icon></button>
 
-        <!-- <div  class="mobileview">
+        <div  class="mobileview">
             <div class="optionsContainer" *ngIf="selectedIds[0]==children.uid" [ngClass]="{'pushup':selectedIds[1]}">
 
-                <ng-container *ngFor="let child of childrenArray[1],let i= index">
-                    <button (click)="onOpenChildren(1,i)" class="atobtn"
+                <ng-container *ngFor="let child of childrenArray[0][selectedIndex[0]].children,let i= index">
+                    <button (click)="onOpenChildren(1,i,child.uid)" class="atobtn"
                         [ngClass]="{'currentbtn':selectedIds[1]==child.uid && !selectedIds[2]}">{{child.title}}<fa-icon
                             icon="chevron-right"></fa-icon></button>
 
                     <div *ngIf="selectedIds[1] && selectedIds[1]==child.uid " class="optionsContainers">
-
-                        <ng-container *ngFor="let child of childrenArray[2];let i=index">
-                            <button (click)="onOpenChildren(2,i)" class="atobtn"
+                        <ng-container *ngFor="let child of childrenArray[0][selectedIndex[0]].children[selectedIndex[1]].children;let i=index">
+                            <button (click)="onOpenChildren(2,i,child.uid)" class="atobtn"
                                 [ngClass]="{'currentbtn':selectedIds[2]==child.uid && !selectedIds[3]}">{{child.title}}<fa-icon
                                     icon="chevron-right"></fa-icon></button>
 
                             <div *ngIf="selectedIds[2] && selectedIds[2]==child.uid" class="optionsContainer">
-
-                                <ng-container *ngFor="let child of childrenArray[3];let i=index">
-                                    <button (click)="(child.children.length>0) && onOpenChildren(3,i)" class="atobtn"
+                              
+                                <ng-container *ngFor="let child of childrenArray[0][selectedIndex[0]].children[selectedIndex[1]].children[selectedIndex[2]].children;let i=index">
+                                    <button (click)="(child.hasChildren) && onOpenChildren(3,i,child.uid)" class="atobtn"
                                         [ngClass]="{'currentbtn':selectedIds[3]==child.uid}">{{child.title}}<fa-icon
-                                            *ngIf="(child.children.length>0)" icon="chevron-right"></fa-icon></button>
+                                            *ngIf="(child.hasChildren)" icon="chevron-right"></fa-icon></button>
 
                                     <div *ngIf="selectedIds[3] && selectedIds[3]==child.uid" class="optionsContainer">
                                         <button class="atobtn"
-                                            *ngFor="let child of childrenArray[4];let i=index">{{child.title}}</button>
+                                            *ngFor="let child of childrenArray[0][selectedIndex[0]].children[selectedIndex[1]].children[selectedIndex[2]].children[selectedIndex[3]].children;let i=index">{{child.title}}</button>
                                     </div>
                                 </ng-container>
                             </div>
@@ -38,7 +37,7 @@
                 </ng-container>
 
             </div>
-        </div> -->
+        </div>
     </ng-container>
     <div *ngIf="selectedIds[0]" class="optionsWrapper">
         <div class="optionsContainer">

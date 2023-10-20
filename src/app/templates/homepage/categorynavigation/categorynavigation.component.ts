@@ -12,11 +12,12 @@ export class CategorynavigationComponent implements OnInit {
   navOpen: boolean = false;
 
   childrenArray: any = {}
-  selectedIds: any = {}
-  selectedIndex: any = {}
+  selectedIds: any = {}//holds the ids of the options we have clicked in respective section-for styling
+  selectedIndex: any = {}//holds the index of the options in each section we are currently rendering for accesssing
+  visited: any = {} //to keep track of  clicked options
   data: any = data.navigationNode.children;
 
-  found: boolean = false;
+  found: boolean = false;//a boolean to stop the recursive call again when item is found
 
   // when menu btn clicked erase all data
   @Input() set navbarOpen(navbarOpen: boolean) {
@@ -34,65 +35,42 @@ export class CategorynavigationComponent implements OnInit {
     this.onOpenChildren(0, index, id)
   }
 
+  // clearing the Ids of button we have visited when its parent button is closed
   clearDataFrom(index) {
     const len = Object.keys(this.selectedIds).length
     for (let i = index; i < len; i++) {
       this.selectedIds[i] = ""
     }
   }
-/**
- * 
- * @param section_index ''
- * @param childIndex 
- * @param Id 
- */
+  /**
+   * 
+   * @param section_index -Refers to the which child section in the UI we are now
+   * @param childIndex -Index of the option we clicked in the array of options button in the respective child section
+   * @param Id -Id of the options button we clicked-to get its respective children from api
+   */
   onOpenChildren(section_index, childIndex, Id) {
-    console.log("children",this.childrenArray[0])
+    // if the Ids in the respective section is again clicked
     if (this.selectedIds[section_index] == Id) {
       if (this.selectedIds[section_index + 1]) {
-        this.clearDataFrom(section_index + 1)
+        this.clearDataFrom(section_index + 1)  //closing all its childrens if any one is opened
       }
       else {
-        this.clearDataFrom(section_index)
+        this.clearDataFrom(section_index) //else closing all including itself
       }
     }
     else {
       this.selectedIds = { ...this.selectedIds, [section_index]: Id }
       this.selectedIndex = { ...this.selectedIndex, [section_index]: childIndex }
       this.clearDataFrom(section_index + 1)
-      if (section_index == 0) {
-        this.productService.getfirstChild().subscribe(
-          response => {
-            for(let item of this.childrenArray[0]){
-              if(item.uid==Id){
-                item.children=response
-              }
-            }
-          }
-        )
-      }
+      // getting the respective children from api if it is not visited
 
-      else if (section_index == 1) {
-        this.productService.getsecondChild().subscribe(
+      if (!this.visited[Id]) {
+        this.visited[Id]=true
+        this.productService.getAllChildren(Id).subscribe(
           response => {
-            this.found = false
-            this.AssignChildren(this.childrenArray[0][1], 'ELEC.NAV.0.4', response)
-          }
-        )
-      }
-      else if (section_index == 2) {
-        this.productService.getthirdChild().subscribe(
-          response => {
-            this.found = false;
-            this.AssignChildren(this.childrenArray[0][1], 'ELEC.NAV.0.4.1', response)
-          }
-        )
-      }
-      else if (section_index == 3) {
-        this.productService.getfourthChild().subscribe(
-          response => {
-            this.found = false;
-            this.AssignChildren(this.childrenArray[0][1], 'ELEC.NAV.0.4.1.1', response)
+            this.found = false //reseting found
+            // passing only the newnode children to assign
+            this.AssignChildren(this.childrenArray[0][this.selectedIndex[0]], Id, response.children)
 
           }
         )
@@ -113,12 +91,22 @@ export class CategorynavigationComponent implements OnInit {
       this.clearDataFrom(0)
     }
   }
+
+  // assigning the children to its respective parent
+  /**
+   * 
+   * @param node root node 
+   * @param id Id of parent to which childrens are setting
+   * @param children children array from the api
+   * @returns Nothing
+   */
   AssignChildren(node: any, id: any, children: any) {
     if (node.uid == id) {
       node.children = children
       this.found = true
       return
     }
+
     if (node.hasOwnProperty('children')) {
       node.children.forEach((element: any) => {
         if (!this.found) {
@@ -130,12 +118,11 @@ export class CategorynavigationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.childrenArray={0:this.data};
-    this.productService.getRootElements().subscribe(
-      response => {
-        this.childrenArray = { 0: response['navigationNode'].children }
-      }
-    )
+    // getting root options- Metal finishing and Electonics when conponent initialized
+    this.productService.getAllChildren("AtotechCategoryNavNode").subscribe(data => {
+
+      this.childrenArray = { 0: data.children }
+    })
   }
 
 }
