@@ -2,8 +2,7 @@ $bgcolor: #fafafa;
 $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 
 ::ng-deep.holiday {
-    border: dashed;
-    border-radius: 100%;
+    // an empty class set to holiday dates to later pick up for customization
 }
 
 // //input outline color --CHANGE THIS CHANGINE THE OUTLINE OF INPUT FIELD
@@ -45,27 +44,27 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
 }
 //  for tooltip
 ::ng-deep .tooltip:not(.mat-calendar-body-selected):not(.mat-calendar-body-today) {
-    border-color: rgba(0,0,0,.38);
     border-radius: 5px;
-    border-style: dashed;
  }
 
 // tooltip tooltip text
  ::ng-deep .tooltip .tooltiptext {
      visibility: hidden;
-     width: 120px;
-     color: #897e7e;
-     background-color: #fff;
-     box-shadow: 0px 0px 8px 1px rgb(188, 187, 187);
+     display: block;
+     min-width: 70px;
+     color: #fff;
+     background-color: #000000;
      font-family: "Trirong", serif;
-     font-weight: 600;
+     font-size: 11px;
      text-align: center;
-     padding: 10px 0;
+     padding:10px 8px;
      position: absolute;
      z-index: 1;
      bottom: 120%;
      margin-left: -60px;
-     left: 50%;
+     left: 95%;
+     border-radius: 10px;
+     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
  }
 //  tooltip arrow down
  ::ng-deep .tooltip:hover::after {
@@ -77,7 +76,7 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
      margin-left: -8px;
      border-width: 8px;
      border-style: solid;
-    border-color: white transparent transparent transparent;
+    border-color: rgb(0, 0, 0) transparent transparent transparent;
  }
  ::ng-deep .tooltip:hover .tooltiptext {
      visibility: visible;
