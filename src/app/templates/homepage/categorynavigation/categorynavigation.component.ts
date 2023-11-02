@@ -11,6 +11,9 @@ export class CategorynavigationComponent implements OnInit {
 
   navOpen: boolean = false;
 
+  @Input() topright;
+  title:string="";
+
   childrenArray: any = {}
   selectedIds: any = {}//holds the ids of the options we have clicked in respective section-for styling
   selectedIndex: any = {}//holds the index of the options in each section we are currently rendering for accesssing
@@ -28,11 +31,13 @@ export class CategorynavigationComponent implements OnInit {
   }
 
   openOptions(index, id) {
+    console.log(this.topright)
     if (this.selectedIds[0] == id) {
       this.clearDataFrom(0)
       return
     }
     this.onOpenChildren(0, index, id)
+    this.title=this.childrenArray[0][index].title
   }
 
   // clearing the Ids of button we have visited when its parent button is closed

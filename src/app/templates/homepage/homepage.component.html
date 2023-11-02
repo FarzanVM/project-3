@@ -1,30 +1,52 @@
 <html>
 
 <body>
-    <div class="header">
+    <div class="header">    
         <div class="topheader">
             <p>Hotline: (+100) 123 456 7890</p>
             <p>Welcome to our market!</p>
             <div class="options">
-                <p>USD</p>
+                <!-- <p>USD</p>
                 <p>ENG</p>
                 <p>COMPARE</p>
                 <p>WISHLIST</p>
-                <p>ACCOUNT</p>
+                <p>ACCOUNT</p> -->
             </div>
+            <app-categorynavigation [navbarOpen]="navOpen" [topright]="true" ></app-categorynavigation>
         </div>
         <div class="bottomheader">
+            <div class="iconWrapper">
+                <img src="assets/images/icons/info.svg">
+                <div class="tooltip">HEllo There</div>
+            </div>
             <fa-icon icon="bars" class="menubtn" (click)="openNav()"></fa-icon>
+            <img src="assets/images/icons/arrow.svg">
             <h1>EMPORIUM</h1>
             <div class="searchbox">
                 <button class="categoriesbtn">All categories</button>
                 <input class="searchbar" type="text" placeholder="Type to search">
             </div>
+            <div class="iconWrapper">
+                <img src="assets/images/icons/info.svg">
+                <div class="tooltip">HEllo There There There There here There There</div>
+            </div>
             <a><button class="cartbtn" (click)="gotocart()"><fa-icon icon="cart-plus"></fa-icon><span
-                        *ngIf="cartlength">{{cartlength}}</span>Shopping Cart</button></a>
+                        *ngIf="cartlength">{{cartlength}}</span>Shopping Cart</button></a>      
         </div>
+        <!-- <div class="hoverbtn">
+            <div class="tooltip-wrapper">
+                <img src="assets/images/icons/info.svg">
+                <span class="tooltiptext">Hover me</span>
+            </div> 
+        </div> -->
+        <!-- <app-categorynavigation [navbarOpen]="navOpen" [topright]="true" ></app-categorynavigation> -->
         <!-- class="navbar" [ngClass]="{'navopen':navOpen}" -->
-        <app-categorynavigation [navbarOpen]="navOpen" ></app-categorynavigation>
+        <div class="navbar-wrapper">
+            <app-categorynavigation [navbarOpen]="navOpen" [topright]="true" ></app-categorynavigation>
+            <!-- <app-categorynavigation [navbarOpen]="navOpen" ></app-categorynavigation> -->
+        </div>
+ 
+        <!-- <app-categorynavigation [navbarOpen]="navOpen" ></app-categorynavigation> -->
         <!-- "{'active':currentIndex==i || currentIndex2==-1}" -->
         <!-- <div [ngStyle]="!navOpen && {'display':'flex'}" class="navbar"> -->
             <!-- <ng-container *ngFor="let children of data;let i= index">
@@ -177,6 +199,7 @@
         <div class="copyright">
             <p>Copyright © 2023 All Rights Reserved</p>
             <p>Designed & Developed by Farzan</p>
+            <app-categorynavigation [navbarOpen]="navOpen" [topright]="true" ></app-categorynavigation>
         </div>
     </div>
 

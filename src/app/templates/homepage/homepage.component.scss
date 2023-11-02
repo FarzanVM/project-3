@@ -5,6 +5,40 @@
 $hvrcolor:#F8F8F8;
 $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 /* for the header part */
+.iconWrapper{
+    position: relative;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.tooltip{
+    visibility:hidden ;
+    display: flex;
+    position: absolute;
+    width: 120px;
+    padding: 10px;  
+    border-radius: 5px;
+    color: white;
+    background: black;
+    z-index: 3;
+    bottom: calc(100% + 4px);
+    left: calc((120px / 2) * -1) - 2;
+}
+.tooltip::after{
+    content: "";
+    top:100%;
+    left: calc(50% - 10px);
+    position: absolute;
+    z-index: 3;
+    border-width: 8px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0) transparent transparent transparent;
+}
+.iconWrapper:hover .tooltip{
+    visibility:visible ;
+}
+
+
+
 .header{
     display: flex;
     flex-direction: column;
@@ -16,7 +50,7 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     padding:5px;
     justify-content: space-around;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     font-size: small;
     .options{
         display: flex;
@@ -32,7 +66,16 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
   }
 
   @media(max-width:800px){
+    // .topheader{
+    //     display: none;
+    // }
     .topheader{
+    display:block;
+    }
+    .topheader p{
+        display: none;
+    }
+    .topheader .options{
         display: none;
     }
   }
@@ -84,6 +127,11 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     }
     
   
+}
+.navbar-wrapper{
+    border: 2px solid red;
+    position: relative;
+    // width:600px;
 }
 @media(max-width:500px){
     .bottomheader{
@@ -228,6 +276,7 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     }
     .copyright{
         display: flex;
+        position: relative;
         align-items: center;
         padding:0px 45px 0px 45px;
         justify-content: space-between;
