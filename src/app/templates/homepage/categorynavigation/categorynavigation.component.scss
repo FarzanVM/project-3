@@ -133,6 +133,7 @@ fa-icon{
             color: white;
             flex-direction: row-reverse;
             justify-content: flex-end;
+            border-radius: 5px;
             img{
                 display: block;
             }
@@ -153,6 +154,7 @@ fa-icon{
             .currentbtn{
                 background-color: #084368;
                 color: white !important;
+                border-radius: 5px;
                 img{
                     display: block;
                 }
@@ -161,6 +163,10 @@ fa-icon{
                 }
             }
         }
+    }
+    .toprightnavbar{
+        padding: 5px;
+        box-sizing: border-box;
     }
     .navbar,.toprightnavbar{
         display: none;
@@ -184,6 +190,9 @@ fa-icon{
              }
             .optionsContainer{
                 width: 100%;
+                padding: 5px;
+                background-color: white;
+                box-sizing: border-box;
               
                 .atobtn{
                     border-bottom: 1px solid #EDEDEF;
