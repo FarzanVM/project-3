@@ -11,10 +11,11 @@ export class OutsideClickDirective {
   @HostListener('document:click', ['$event.target'])
   public onClick(targetElement) {
     const clickedInside = this.elementRef.nativeElement.contains(targetElement);
-  
+    
     if (!clickedInside) {
       this.OutsideClick.emit(true);
-    } else {
+    } 
+    else {
       this.OutsideClick.emit(false);
     }
   }

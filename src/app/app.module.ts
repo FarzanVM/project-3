@@ -36,6 +36,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductEffects } from './store/product.effect';
 import { OutsideClickDirective } from './templates/homepage/outside-click.directive';
 import { CategorynavigationComponent } from './templates/homepage/categorynavigation/categorynavigation.component';
+import { DateRagePickerHeaderModule } from './templates/homepage/date-rangepicker-header/date-rangepicker-header.module';
+import { DateRangepickerComponent } from './templates/homepage/date-rangepicker/date-rangepicker.component';
+import { DatePickerComponent } from './templates/homepage/date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,9 @@ import { CategorynavigationComponent } from './templates/homepage/categorynaviga
     FormdirectiveDirective,
     AlertComponent,
     OutsideClickDirective,
-    CategorynavigationComponent
+    CategorynavigationComponent,
+    DateRangepickerComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +74,7 @@ import { CategorynavigationComponent } from './templates/homepage/categorynaviga
     MatDialogModule,
     MatTooltipModule,
     HttpClientModule,
+    DateRagePickerHeaderModule,
     StoreModule.forRoot({'productsx':productReducer}),
     EffectsModule.forRoot([ProductEffects])
   ],

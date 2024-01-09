@@ -1,9 +1,7 @@
 $bgcolor: #fafafa;
 $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+$selected-date-range-color:#116294;
 
-::ng-deep.holiday {
-    border-radius: 100%;
-}
 
 // //input outline color --CHANGE THIS CHANGINE THE OUTLINE OF INPUT FIELD
 :host::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
@@ -15,25 +13,34 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     margin-top: 0px !important;
     display: flex !important;
     align-items: center !important;
-    width: 100% !important;
+    width: 270px !important;
     height: 65px !important;
     padding: 0px !important;
     box-sizing: border-box !important;
+}
+::ng-deep .mat-form-field .mat-datepicker-toggle .mat-mdc-icon-button .mat-icon{
+    margin-top: 15px !important;
 }
 
 :host::ng-deep .mat-form-field-label {
     top: 38px;
     left: 14px;
 }
+
+// for daterange input
+:host::ng-deep .mat-date-range-input-inner{
+    top:-10px !important;
+    width: 150px !important;
+}
+:host::ng-deep .mat-date-range-input-wrapper{
+    overflow: hidden !important;
+    width: 150px !important;
+}
 :host::ng-deep .mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline{
     color:tomato;
 }
 
-:host::ng-deep .mat-datepicker-toggle {
-    position: absolute;
-    bottom: 23px;
-    right: 0px;
-}
+
 
 :host::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
     border-color: green;
@@ -42,11 +49,22 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
 :host::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
     background-color: green;
 }
+// from this for calender based styles
+// for holiday
+::ng-deep.holiday {
+    border-radius: 100%;
+}
+:host::ng-deep .mat-datepicker-toggle {
+    position: absolute;
+    bottom: 23px;
+    right: 0px;
+}
 //  for tooltip
 ::ng-deep .tooltip:not(.mat-calendar-body-selected):not(.mat-calendar-body-today) {
     border-color: rgba(0,0,0,.38);
     border-radius: 5px;
-    border-style: dashed;
+    // border-style: dashed;
+    border: none;
  }
 
 // tooltip tooltip text
@@ -81,7 +99,7 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
  ::ng-deep .tooltip:hover .tooltiptext {
      visibility: visible;
  }
-// for calender
+// for calender body
 ::ng-deep .mat-calendar-body-label{
     opacity: 0;
 }
@@ -92,92 +110,93 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     display: none;
 }
 // changin the year view
-::ng-deep mat-multi-year-view {
-    --mat-datepicker-calendar-date-focus-state-background-color:white;
-    .mat-calendar-body-disabled{
-        display: none;
-    }
-    table{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 228px;
+// ::ng-deep mat-multi-year-view {
+   
+//     --mat-datepicker-calendar-date-focus-state-background-color:white;
+//     .mat-calendar-body-disabled{
+//         display: none;
+//     }
+//     table{
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//         height: 228px;
        
-    }
-    .mat-calendar-body-cell:not(.mat-calendar-body-active){
-        background-color: white;
-        color:black;
-        border-radius:5px;
-    }
-    table tbody{ 
-        tr:nth-child(1){
-            display: flex;
-            flex-direction: column;
-            row-gap: 10px;
-            margin-left: 15%;
-            margin-top: 45%;
-            width: 100%;
-            height: auto;
-            td{
-                height:20px;
+//     }
+//     .mat-calendar-body-cell:not(.mat-calendar-body-active){
+//         background-color: white;
+//         color:black;
+//         border-radius:5px;
+//     }
+//     table tbody{ 
+//         tr:nth-child(1){
+//             display: flex;
+//             flex-direction: column;
+//             row-gap: 10px;
+//             margin-left: 15%;
+//             margin-top: 45%;
+//             width: 100%;
+//             height: auto;
+//             td{
+//                 height:20px;
               
-                button{
-                    width: 150px;
+//                 button{
+//                     width: 150px;
                   
-                }
-                button:not( .mat-calendar-body-active){
-                    span:is(.mat-calendar-body-cell-content.mat-focus-indicator){
-                        background-color: white;
-                        color: black; //
-                        border-radius: 5px;  
-                    }
-                }
-                .mat-calendar-body-cell-preview{
-                    display: none;
-                }
-                button:is(.mat-calendar-body-active){
-                    border-radius: 5px;
-                    background-color: grey;
-                    color: white;
-                    .mat-calendar-body-cell-content{
-                        color:rgb(255, 255, 255);
-                    }
-                    span:is(.mat-calendar-body-today:not(.mat-calendar-body-selected)){
-                        background-color: white;
-                        color:black;
-                    }
-                    span:hover{
-                        color: white !important;
-                    }
-                    span:not(.mat-calendar-body-selected){
-                        background-color: rgb(255, 255, 255);
-                        color:black;
-                        border-radius: 5px;
-                    }
+//                 }
+//                 button:not( .mat-calendar-body-active){
+//                     span:is(.mat-calendar-body-cell-content.mat-focus-indicator){
+//                         background-color: white;
+//                         color: black; //
+//                         border-radius: 5px;  
+//                     }
+//                 }
+//                 .mat-calendar-body-cell-preview{
+//                     display: none;
+//                 }
+//                 button:is(.mat-calendar-body-active){
+//                     border-radius: 5px;
+//                     background-color: grey;
+//                     color: white;
+//                     .mat-calendar-body-cell-content{
+//                         color:rgb(255, 255, 255);
+//                     }
+//                     span:is(.mat-calendar-body-today:not(.mat-calendar-body-selected)){
+//                         background-color: white;
+//                         color:black;
+//                     }
+//                     span:hover{
+//                         color: white !important;
+//                     }
+//                     span:not(.mat-calendar-body-selected){
+//                         background-color: rgb(255, 255, 255);
+//                         color:black;
+//                         border-radius: 5px;
+//                     }
                    
-                }
+//                 }
             
-            }
+//             }
             
-        }
-        tr:nth-child(2){
-            display: none;
-        }
-        tr:nth-child(3){
-            display: none;
-        }
-        tr:nth-child(4){
-            display: none;
-        }
-        tr:nth-child(5){
-            display: none;
-        }
-        tr:nth-child(6){
-            display: none;
-        }
-    }
+//         }
+//         tr:nth-child(2){
+//             display: none;
+//         }
+//         tr:nth-child(3){
+//             display: none;
+//         }
+//         tr:nth-child(4){
+//             display: none;
+//         }
+//         tr:nth-child(5){
+//             display: none;
+//         }
+//         tr:nth-child(6){
+//             display: none;
+//         }
+//     }
     
-}
+// }
 // changing the month view
 ::ng-deep mat-year-view{
     --mat-datepicker-calendar-date-focus-state-background-color:white;
@@ -247,6 +266,7 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
         display: none;
     }
     .mat-calendar-body{
+        --mat-datepicker-calendar-date-preview-state-outline-color:#116294 !important; //new color for range 
         perspective: 1px;
         border-spacing: 0px !important;
         border-collapse: separate!important;
@@ -263,6 +283,19 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
         }  
         .mat-calendar-body-cell-content {
             border-radius: 5px;
+        }
+        // datepicker range styling
+        .mat-calendar-body-in-range{
+            background-color: $selected-date-range-color !important;
+            .mat-focus-indicator{
+                color: white !important;
+            }  
+        }
+        .mat-calendar-body-range-start{
+            border-radius: 5px 0px 0px 5px;
+        }
+        .mat-calendar-body-range-end{
+            border-radius: 0px 5px 5px 0px;
         }
     }
     
@@ -304,6 +337,7 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
     color: #fff;
  
 }
+
 // till this
 
 

@@ -131,7 +131,25 @@ $box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px
 .navbar-wrapper{
     // border: 2px solid red;
     position: relative;
+    display: flex;
+    justify-content: space-around;
+    button{
+        padding: 10px;
+    }
     // width:600px;
+    .account-wrapper{
+        .options{
+            display: none;
+        }
+    }
+    .account-wrapper:hover{
+        .options{
+            position: absolute;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
 @media(max-width:500px){
     .bottomheader{

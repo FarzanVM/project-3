@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from 'src/shared/interfaces';
-import { map } from 'rxjs';
+import { BehaviorSubject, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ export class ProductService {
 
   found:boolean=false; //a boolean to stop the recursive call again when item is found
   newNode:any;
+  public beSubject = new BehaviorSubject("Farzan");
   constructor(private http:HttpClient) { }
 
   // finding the children of given parentId

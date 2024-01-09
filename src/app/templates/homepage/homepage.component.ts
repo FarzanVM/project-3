@@ -3,6 +3,8 @@ import { Component, DoCheck, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import data from '../../../data/browseStructureTree.json'
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-homepage',
@@ -19,8 +21,27 @@ export class HomepageComponent implements OnInit {
   btnclass = "";
 
   optionList: any[] = [];
-  
-  constructor(private router: Router) { }
+
+  // beSubject = new BehaviorSubject('a');
+  // beSubject = new Subject()
+
+  constructor(private router: Router,private productservice:ProductService) { }
+  ngOnInit(): void {
+    // this.beSubject.next('b');
+    // this.beSubject.subscribe(value=>{
+    //   console.log("Getting data ",value)
+    // })
+    // this.beSubject.next('c'); 
+    // this.beSubject.next('d');
+    this.productservice.beSubject.subscribe(value =>{
+      console.log("Behaviour Subject Value",value)
+    })
+    this.productservice.beSubject.next("Bhadra")
+  } 
+
+
+
+
   ngDoCheck() {
     // if any change happends in the application look for cartitems
     const item = localStorage.getItem('cartitems');
@@ -46,10 +67,7 @@ export class HomepageComponent implements OnInit {
     }
   }
  
-  ngOnInit(): void {
   
-  } 
-
 
 
   gotoallproduct() {

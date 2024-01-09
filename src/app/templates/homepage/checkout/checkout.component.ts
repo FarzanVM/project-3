@@ -12,6 +12,7 @@ import { Store, select } from '@ngrx/store';
 import * as AllActions from '../../../store/product.action';
 import { cartItemsSelector, userSelector } from '../../../store/store.selector';
 import { Product, User } from 'src/shared/interfaces';
+import { DateRagePickerHeader} from '../date-rangepicker-header/date-rangepicker-header.component';
 
 @Component({
   selector: 'app-checkout',
@@ -49,9 +50,14 @@ export class CheckoutComponent implements OnInit {
   // getting todays and last of 7 days
   today: Date = new Date(new Date().toISOString().split('T')[0]);
   lastdate: any = new Date(new Date(new Date().getTime() + 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
+dateRagePickerHeader= DateRagePickerHeader;
+submissionDateRange: FormGroup<any>;
 
   constructor( private fb: FormBuilder,private renderer:Renderer2,private dialog:MatDialog,private store:Store) { }
-
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
+  });
   ngOnInit(): void {
     this.billing = true;
     this.myHolidayDates=myHolidayDates;
@@ -132,15 +138,15 @@ export class CheckoutComponent implements OnInit {
 
  
   // styling holidays
-  dateClass: MatCalendarCellClassFunction<Date> = (cellDate: { getTime: () => any; }, view: string) => {
+  // dateClass: MatCalendarCellClassFunction<Date> = (cellDate: { getTime: () => any; }, view: string) => {
 
-    const date = cellDate.getTime();
+  //   const date = cellDate.getTime();
 
-    if (view == 'month') {
-      return this.myHolidayDates.find(x => x.date.getTime() == date) ? 'holiday' : "";
-    }
-    return "";
-  }
+  //   if (view == 'month') {
+  //     return this.myHolidayDates.find(x => x.date.getTime() == date) ? 'holiday' : "";
+  //   }
+  //   return "";
+  // }
   
 // function to get the holiday on each month and adding description
   displayHoliday(){
@@ -170,6 +176,7 @@ export class CheckoutComponent implements OnInit {
 
   // function to format the date(month and year)
   customizeCal(){
+  
       let dateBtn = document.querySelectorAll(".mat-mdc-button .mdc-button__label")
       let fullDate = dateBtn[0].childNodes[0].childNodes[0].nodeValue; // Ex. Oct 2023
 
@@ -208,26 +215,26 @@ export class CheckoutComponent implements OnInit {
         this.renderer.listen(btn,'click',()=>{
           setTimeout(()=>{
             this.customizeCal();
-            this.displayHoliday();
+            // this.displayHoliday();
           })   
         })
       )
       this.customizeCal();
-      this.displayHoliday();
+      // this.displayHoliday();
     })
    
   }
 
   // filtering weekends and disabling them
-  filterWeekends = (d: Date | null): boolean => {
-    const day = d?.getDay();
-    const time = d?.getTime();
-    const dateRange = [new Date(new Date().getFullYear(), 0, 1),
-      new Date(new Date().getFullYear(), 23, 31)]
+  // filterWeekends = (d: Date | null): boolean => {
+  //   const day = d?.getDay();
+  //   const time = d?.getTime();
+  //   const dateRange = [new Date(new Date().getFullYear(), 0, 1),
+  //     new Date(new Date().getFullYear(), 23, 31)]
 
-    return day !== 0 && day !== 6 && !this.myHolidayDates.find(x => x.date.getTime() == time) && (d >= dateRange[0] && d <= dateRange[1]);
+  //   return day !== 0 && day !== 6 && !this.myHolidayDates.find(x => x.date.getTime() == time) && (d >= dateRange[0] && d <= dateRange[1]);
 
-  }
+  // }
 //  navigation through section
   gotobilling() {
     this.section.delivery = "none"

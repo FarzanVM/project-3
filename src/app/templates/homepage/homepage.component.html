@@ -12,7 +12,7 @@
                 <p>WISHLIST</p>
                 <p>ACCOUNT</p> -->
             </div>
-            <app-categorynavigation [navbarOpen]="navOpen" [topright]="true" ></app-categorynavigation>
+            <!-- <app-categorynavigation [navbarOpen]="navOpen" [topright]="true" ></app-categorynavigation> -->
         </div>
         <div class="bottomheader">
             <div class="iconWrapper">
@@ -33,6 +33,7 @@
             <a><button class="cartbtn" (click)="gotocart()"><fa-icon icon="cart-plus"></fa-icon><span
                         *ngIf="cartlength">{{cartlength}}</span>Shopping Cart</button></a>      
         </div>
+        <div>Hello there</div>
         <!-- <div class="hoverbtn">
             <div class="tooltip-wrapper">
                 <img src="assets/images/icons/info.svg">
@@ -42,7 +43,7 @@
         <!-- <app-categorynavigation [navbarOpen]="navOpen" [topright]="true" ></app-categorynavigation> -->
         <!-- class="navbar" [ngClass]="{'navopen':navOpen}" -->
         <div class="navbar-wrapper">
-            <app-categorynavigation [navbarOpen]="navOpen" [topright]="true" ></app-categorynavigation>
+            <!-- <app-categorynavigation [navbarOpen]="navOpen" [topright]="true" ></app-categorynavigation> -->
             <!-- <app-categorynavigation [navbarOpen]="navOpen" ></app-categorynavigation> -->
         </div>
  
@@ -121,6 +122,25 @@
                 <a><button class="navbtn" (click)="gotoallproduct()">ADMIN PANEL</button></a>         -->
         <!-- </div> -->
     </div>
+    <div class="navbar-wrapper">
+        <app-categorynavigation [navbarOpen]="navOpen" ></app-categorynavigation>
+        <div class="account-wrapper">
+            <!-- <app-date-rangepicker></app-date-rangepicker> -->
+            <!-- <app-date-picker></app-date-picker> -->
+            <button>Click Me</button>
+            <div class="options">
+                <a [routerLink]="'cart'">Option1</a>
+                <a >Option2</a>
+                <a >Option3</a>
+                <a >Option4</a>
+                <a >Option5</a>
+                <a href="">Option6</a>
+                <a href="/cart">Option7</a>
+            </div>
+        </div>
+        
+    </div>
+   
     <div [ngStyle]="displaydiv?{'display':'flex'}:{'display':'none'}" class="fashion-div">
         <div class="column">
             <p>WOMEN</p>

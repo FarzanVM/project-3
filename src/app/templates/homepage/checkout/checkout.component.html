@@ -150,22 +150,8 @@
                         <mat-radio-button value="Express delivery" >Express Delivery</mat-radio-button>
                       </mat-radio-group>
                     <div *ngIf="this.deliveryForm.get('deliverymthd').value=='Express delivery'" class="date-picker">
-                        <p>Requested Shipping data</p>
-                        <mat-form-field appearance="outline">
-                            <mat-label>Choose a date</mat-label>
-                            <input
-                            matInput [min]="today" [matDatepicker]="picker"
-                            [matDatepickerFilter]="filterWeekends" formControlName="deliverydate">
-                        <mat-datepicker-toggle matIconSuffix [for]="picker">
-                            <mat-icon matDatepickerToggleIcon><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z" stroke="#12314A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M16 2V6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M8 2V6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M3 10H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg></mat-icon>
-                        </mat-datepicker-toggle>
-                        <mat-datepicker (opened)="calOpened($event)" #picker [dateClass]="dateClass" (monthSelected)="customizeMonth()"></mat-datepicker>
-                        </mat-form-field>
+                        <app-date-rangepicker></app-date-rangepicker>
+                        <!-- <app-date-picker></app-date-picker> -->
                         <p class="invalid-msg"
                             *ngIf="this.deliveryForm.get('deliverydate').touched && this.deliveryForm.get('deliverydate').errors?.required">
                             required date</p>

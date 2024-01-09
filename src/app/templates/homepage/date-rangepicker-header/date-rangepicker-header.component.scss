@@ -1,0 +1,111 @@
+// @import '../../../../../../styles/variables.scss';
+// @import '../../../../../../styles/mixins.scss';
+
+// ::ng-deep .mat-datepicker-content{
+
+//     @include without-hamburger{
+//         margin-top: 22px;
+//     }
+
+//     .mat-calendar.dr-picker-panel {
+//        // height: 420px;
+//     }
+// } 
+  
+  ::ng-deep .mat-calendar-header {
+    padding-top: 0;
+    .mat-calendar-controls{
+        margin-top: 18px;
+    }
+  }
+  //extra
+  .inputfilled{
+    border-color:#1c80bf !important;
+  }
+  //
+::ng-deep {
+    .calender-input-container{
+        position: relative;
+
+        .calender-input-wrapper{
+            display: flex;
+            column-gap: 30px;
+            flex-direction: row;
+            padding: 6px 16px 0 16px;
+
+            .mat-mdc-form-field{
+                font-size: 14px;
+                font-weight: 700;
+
+                .mdc-text-field{
+                    padding: 0;
+                    
+                }
+
+                .mat-mdc-form-field-subscript-wrapper{
+                    display: none;
+                }
+
+                .mdc-text-field:not(.mdc-text-field--disabled),.mdc-text-field-focused:not(.mdc-text-field--disabled){
+                    .mdc-floating-label {
+                        // color: $tech-light-blue;
+                        font-size: 12px;
+                        //line-height: 32px
+                        font-weight: 700;
+                        transform: translateY(-20px);
+                        
+                    }   
+                }
+
+                .mdc-text-field--filled:not(.mdc-text-field--disabled), .mat-mdc-form-field-focus-overlay  {
+                    background-color: #fff;
+                }
+
+                .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+                    // color: $tech-middle-blue;
+                }
+
+                .mat-mdc-input-element::placeholder {
+                    color: #131212;
+                    font-weight: normal;
+                }
+                //extra
+                .mat-mdc-text-field-wrapper .mat-mdc-form-field-input-control{
+                    height:40px;
+                    width: 100px;
+                    border: 1px solid rgb(237, 231, 231);
+                    border-radius: 5px;
+                    padding-left: 10px;
+                }
+                //extra
+                .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+                    border: none;
+                }
+                //extra
+                .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+                    border: none;
+                }
+                .mdc-line-ripple--active::after {
+                    transform: none;
+                    opacity: 0;
+                    border: none;
+                }
+
+                .mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::before {
+                    border-bottom-color: rgba(0, 0, 0, 0.42);
+                }
+
+                .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+                    padding-top: 30px;
+                }
+            }
+        }
+
+        .error{
+            position: absolute;
+            font-size: 12px;
+            padding: 4px 15px 0;
+
+        }
+    }
+}

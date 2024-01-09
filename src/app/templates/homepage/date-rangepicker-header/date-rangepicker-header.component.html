@@ -1,0 +1,23 @@
+<!-- Range picker -->
+<div class="calender-input-container">
+  <div class="calender-input-wrapper">
+    <mat-form-field floatLabel="always">
+      <!-- {{ "techTranslation.order.calender.from" | cxTranslate }} -->
+      <mat-label>From</mat-label>
+      <input matInput name="first" [ngModel]="selectedStartDate" (keyup)="setStartDate($event)" placeholder="Select date" [ngClass]="{'inputfilled':selectedStartDate}">
+    </mat-form-field>
+    <mat-form-field floatLabel="always">
+      <!-- {{ "techTranslation.order.calender.to" | cxTranslate }} -->
+      <mat-label>To</mat-label>
+      <input matInput  name="sec" [ngModel]="selectedEndDate" (keyup)="setEndDate($event)" placeholder="Select date" [ngClass]="{'inputfilled':selectedEndDate}">
+    </mat-form-field>
+  </div>
+
+  <!-- <mat-error class="error" *ngIf="dateRangeError | async as error" >
+    {{ "techTranslation.dateValidation.enterValidDate" | cxTranslate }}
+    <span *ngIf="error.invalidDate()"></span> 
+    <span *ngIf="error.invalidDateRange && !error.invalidDate()"></span>
+  </mat-error> -->
+</div>
+<mat-calendar-header>
+</mat-calendar-header>

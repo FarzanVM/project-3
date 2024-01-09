@@ -1,0 +1,322 @@
+$selected-date-range-color:#116294;
+
+:host::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: green;
+    // opacity: 1!important;
+}
+
+::ng-deep .mat-form-field-flex {
+    margin-top: 0px !important;
+    display: flex !important;
+    align-items: center !important;
+    width: 270px !important;
+    height: 65px !important;
+    padding: 0px !important;
+    box-sizing: border-box !important;
+}
+::ng-deep .mat-form-field .mat-datepicker-toggle .mat-mdc-icon-button .mat-icon{
+    margin-top: 15px !important;
+}
+
+:host::ng-deep .mat-form-field-label {
+    top: 22px;
+    left: 14px;
+}
+// from this for calender based styles
+// for date range
+:host::ng-deep .mat-date-range-input-inner{
+    top:0px !important;
+    width: 150px !important;
+}
+:host::ng-deep .mat-date-range-input-wrapper{
+    overflow: hidden !important;
+    width: 150px !important;
+}
+//
+// for holiday
+::ng-deep .holiday {
+    border-radius: 100%;
+}
+:host::ng-deep .mat-datepicker-toggle {
+    position: absolute;
+    bottom: 23px;
+    right: 0px;
+}
+//  for tooltip
+::ng-deep .tooltip:not(.mat-calendar-body-selected):not(.mat-calendar-body-today) {
+    border-color: rgba(0,0,0,.38);
+    border-radius: 5px;
+    // border-style: dashed;
+    border: none;
+ }
+
+// tooltip tooltip text
+ ::ng-deep .tooltip .tooltiptext {
+     visibility: hidden;
+     width: 120px;
+     color: #897e7e;
+     background-color: #fff;
+     box-shadow: 0px 0px 8px 1px rgb(188, 187, 187);
+     font-family: "Trirong", serif;
+     font-weight: 600;
+     text-align: center;
+     padding: 10px 0;
+     position: absolute;
+     z-index: 1;
+     bottom: 120%;
+     margin-left: -60px;
+     left: 50%;
+ }
+//  tooltip arrow down
+ ::ng-deep .tooltip:hover::after {
+     content: "";
+     z-index: 2;
+     position: absolute;
+     top: -25%;
+     left: 50%;
+     margin-left: -8px;
+     border-width: 8px;
+     border-style: solid;
+    border-color: white transparent transparent transparent;
+ }
+ ::ng-deep .tooltip:hover .tooltiptext {
+     visibility: visible;
+ }
+// for calender body
+::ng-deep .mat-calendar-body-label{
+    opacity: 0;
+}
+::ng-deep .mat-calendar-body-label[colspan="7"] {
+    display: none;
+}
+::ng-deep mat-year-view .mat-calendar-body-label[colspan="4"]{
+    display: none;
+}
+// changin the year view
+::ng-deep mat-multi-year-view {
+   
+    --mat-datepicker-calendar-date-focus-state-background-color:white;
+    .mat-calendar-body-disabled{
+        display: none;
+    }
+    table{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 228px;
+       
+    }
+    .mat-calendar-body-cell:not(.mat-calendar-body-active){
+        background-color: white;
+        color:black;
+        border-radius:5px;
+    }
+    table tbody{ 
+        tr:nth-child(1){
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
+            margin-left: 15%;
+            margin-top: 45%;
+            width: 100%;
+            height: auto;
+            td{
+                height:20px;
+              
+                button{
+                    width: 150px;
+                  
+                }
+                button:not( .mat-calendar-body-active){
+                    span:is(.mat-calendar-body-cell-content.mat-focus-indicator){
+                        background-color: white;
+                        color: black; //
+                        border-radius: 5px;  
+                    }
+                }
+                .mat-calendar-body-cell-preview{
+                    display: none;
+                }
+                button:is(.mat-calendar-body-active){
+                    border-radius: 5px;
+                    background-color: grey;
+                    color: white;
+                    .mat-calendar-body-cell-content{
+                        color:rgb(255, 255, 255);
+                    }
+                    span:is(.mat-calendar-body-today:not(.mat-calendar-body-selected)){
+                        background-color: white;
+                        color:black;
+                    }
+                    span:hover{
+                        color: white !important;
+                    }
+                    span:not(.mat-calendar-body-selected){
+                        background-color: rgb(255, 255, 255);
+                        color:black;
+                        border-radius: 5px;
+                    }
+                   
+                }
+            
+            }
+            
+        }
+        tr:nth-child(2){
+            display: none;
+        }
+        tr:nth-child(3){
+            display: none;
+        }
+        tr:nth-child(4){
+            display: none;
+        }
+        tr:nth-child(5){
+            display: none;
+        }
+        tr:nth-child(6){
+            display: none;
+        }
+    }
+    
+}
+// changing the month view
+::ng-deep mat-year-view{
+    --mat-datepicker-calendar-date-focus-state-background-color:white;
+    .mat-calendar-body-cell-content{
+        background-color: white;
+        border-radius: 5px;
+    }
+    table{
+        column-span: 3;
+    }
+
+}
+::ng-deep .mat-calendar-controls{
+    background: #084368;
+    border-radius: 3px;
+    color: white;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 5px;
+    height: 35px;
+    box-sizing: border-box;
+    .mat-calendar-arrow {
+        fill: white;
+        // display: none;
+    }
+    .mat-calendar-spacer {
+        display: none;
+    }
+    .mat-calendar-period-button{
+        color: rgb(179, 255, 0);
+    }
+    .mdc-button{
+        line-height: 3px;
+        letter-spacing: 0px;
+        width: 100px;
+        padding: 0px;
+        justify-content: center;
+        align-items: center;
+        height:30px;
+    }
+    
+}
+::ng-deep .mat-calendar-controls button{
+    display: flex !important;
+     color: white !important;
+}
+::ng-deep .mat-calendar-controls button::after{
+    margin: 10.5px;
+}
+::ng-deep .mat-calendar-controls .mat-mdc-icon-button.mat-mdc-button-base{
+    background-color:#032d48 ;
+    height:30px !important;
+    width: 30px !important;
+}
+// setting the clander body background
+::ng-deep mat-month-view{
+     --mat-datepicker-calendar-date-focus-state-background-color:transparent;
+}
+::ng-deep .mat-calendar-table {
+    background-color:rgb(246, 244, 244);
+    border-radius: 5px;
+    border-spacing: 0px;
+    .mat-calendar-table-header{
+        background: #fff;
+    }
+    .mat-calendar-table-header-divider{
+        display: none;
+    }
+    .mat-calendar-body{
+        --mat-datepicker-calendar-date-preview-state-outline-color:#116294 !important; //new color for range 
+        perspective: 1px;
+        border-spacing: 0px !important;
+        border-collapse: separate!important;
+        .mat-calendar-body-active{
+            color: white;
+        }
+        .mat-calendar-body-selected{
+            --mat-datepicker-calendar-date-focus-state-background-color:#032d48;
+            color: white;
+        }  
+        .mat-calendar-body-cell{
+            background-color: rgb(246, 244, 244);
+            
+        }  
+        .mat-calendar-body-cell-content {
+            border-radius: 5px;
+        }
+        // datepicker range styling
+        .mat-calendar-body-in-range{
+            background-color: $selected-date-range-color !important;
+            .mat-focus-indicator{
+                color: white !important;
+            }  
+        }
+        .mat-calendar-body-range-start{
+            border-radius: 5px 0px 0px 5px;
+        }
+        .mat-calendar-body-range-end{
+            border-radius: 0px 5px 5px 0px;
+        }
+    }
+    
+}
+// when hovering
+::ng-deep .mat-calendar-content .mat-calendar-body-cell:hover{
+    --mat-datepicker-calendar-date-hover-state-background-color:#032d48;
+    border-radius: 5px;
+    .mat-calendar-body-cell-content.mat-focus-indicator{
+        background-color:#032d48;
+        border-radius: 5px;
+        color: white;
+    }   
+}
+
+::ng-deep .mat-calendar-content .mat-calendar-body-today,.mat-calendar-content .mat-calendar-body-active{
+    border: none;
+    border-radius: 5px;
+}
+::ng-deep .mat-calendar-content .mat-calendar-body-selected{
+    --mat-datepicker-calendar-date-hover-state-background-color:#032d48;
+    background-color:#032d48  ;
+    border-radius: 5px;
+    color: white; 
+}
+::ng-deep .mat-calendar-controls .mat-mdc-icon-button {
+    border-radius: 5px;
+}
+::ng-deep .mat-datepicker-content .mat-calendar {
+    height:auto !important;
+}
+
+::ng-deep.monthlabel{
+    display: flex;
+    text-align: right;
+    width: 100% !important;
+    justify-content: flex-end;  
+    box-sizing: border-box; 
+    color: #fff;
+ 
+}
